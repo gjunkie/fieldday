@@ -4,6 +4,7 @@ import styles from './Poster.module.css'
 export const Poster = ({
   id,
   img,
+  onClick,
   title,
 }) => {
   const [isHoveringPoster, setIsHoveringPoster] = React.useState(false)
@@ -17,13 +18,12 @@ export const Poster = ({
       <div className={`${styles.title} ${isHoveringPoster ? styles.visible : ''}`}>{title}</div>
       <div
         className={styles.hover}
+        onClick={() => {onClick(img)}}
         onMouseEnter={handlePosterHover}
         onMouseLeave={handlePosterHover}
       />
       <div className={`${styles.poster} ${isHoveringPoster ? styles.hovering : ''}`}>
-        <div
-          className={styles.wrapper}
-        >
+        <div className={styles.wrapper}>
           <img src={img} />
         </div>
       </div>

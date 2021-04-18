@@ -43,6 +43,7 @@
   left: 0;
   opacity: 0;
   text-transform: uppercase;
+  top: -5px;
   transition-duration: 100ms;
   width: 250px;
 }

@@ -85,7 +85,7 @@ const mockData = {
   }
 }
 
-export const Carousel = () => {
+export const Carousel = ({ onClickPoster }) => {
 
   return (
     <ul className={styles.carousel}>
@@ -94,6 +94,7 @@ export const Carousel = () => {
           id={mockData[key].id}
           img={mockData[key].img}
           key={mockData[key].id}
+          onClick={onClickPoster}
           title={mockData[key].title}
         />
         ))
