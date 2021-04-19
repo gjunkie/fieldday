@@ -3,14 +3,14 @@ import styles from './Poster.module.css'
 
 export const Poster = ({
   id,
-  img,
+  imgUrl,
   onClick,
   title,
 }) => {
   const [isHoveringPoster, setIsHoveringPoster] = React.useState(false)
 
-  const handlePosterHover = () => {
-    setIsHoveringPoster(!isHoveringPoster)
+  const handlePosterHover = (isHovering) => {
+    setIsHoveringPoster(isHovering)
   }
 
   return (
@@ -18,13 +18,13 @@ export const Poster = ({
       <div className={`${styles.title} ${isHoveringPoster ? styles.visible : ''}`}>{title}</div>
       <div
         className={styles.hover}
-        onClick={() => {onClick(img)}}
-        onMouseEnter={handlePosterHover}
-        onMouseLeave={handlePosterHover}
+        onClick={() => onClick(id)}
+        onMouseEnter={() => handlePosterHover(true)}
+        onMouseLeave={() => handlePosterHover(false)}
       />
       <div className={`${styles.poster} ${isHoveringPoster ? styles.hovering : ''}`}>
         <div className={styles.wrapper}>
-          <img src={img} />
+          <img src={imgUrl} alt={title} />
         </div>
       </div>
     </li>
