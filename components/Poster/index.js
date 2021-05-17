@@ -2,10 +2,10 @@ import * as React from 'react'
 import styles from './Poster.module.css'
 
 export const Poster = ({
+  brand,
   id,
   imgUrl,
   onClick,
-  title,
 }) => {
   const [isHoveringPoster, setIsHoveringPoster] = React.useState(false)
 
@@ -15,7 +15,7 @@ export const Poster = ({
 
   return (
     <li className={`${styles.item}`}>
-      <div className={`${styles.title} ${isHoveringPoster ? styles.visible : ''}`}>{title}</div>
+      <div className={`${styles.brand} ${isHoveringPoster ? styles.visible : ''}`}>{brand}</div>
       <div
         className={styles.hover}
         onClick={() => onClick(id)}
@@ -24,7 +24,7 @@ export const Poster = ({
       />
       <div className={`${styles.poster} ${isHoveringPoster ? styles.hovering : ''}`}>
         <div className={styles.wrapper}>
-          <img src={imgUrl} alt={title} />
+          <img src={imgUrl} alt={brand} />
         </div>
       </div>
     </li>

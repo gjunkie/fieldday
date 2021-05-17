@@ -5,15 +5,20 @@ import { getAllVideosForHome } from '../lib/graphcms'
 import { Carousel } from '../components/Carousel'
 import { Video } from '../components/Video'
 
+import styles from '../styles/Home.module.css';
+
 Modal.setAppElement('#__next')
 
 const modalStyles = {
   overlay: {
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: '#e4e3dd',
     zIndex: 2,
   },
   content: {
+    backgroundColor: '#e4e3dd',
+    display: 'flex',
     inset: 0,
+    justifyContent: 'center',
     padding: 0,
   }
 }
@@ -55,7 +60,7 @@ export default function Home({
         <meta property="og:description" content="" key="ogdesc" />
       </Head>
 
-      <h1>Field Day</h1>
+      <h1 className={styles.title}>field day</h1>
 
       <Carousel onClickPoster={handlePosterClick} videos={videos} />
 

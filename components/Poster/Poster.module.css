@@ -38,17 +38,20 @@
   transform: rotate(-10deg) translate3d(0px, -30px, 0);
 }
 
-.title {
+.brand {
+  color: rgb(56, 56, 56);
+  font-family: 'Montserrat';
   position: absolute;
   left: 0;
+  letter-spacing: 2px;
   opacity: 0;
   text-transform: uppercase;
-  top: -5px;
+  top: -13px;
   transition-duration: 100ms;
   width: 250px;
 }
 
-.title.visible {
+.brand.visible {
   left: 120px;
   opacity: 1;
   transition-delay: 200ms;

@@ -13,7 +13,7 @@ export const Carousel = ({
         imgUrl={video.poster.url}
         key={video.id}
         onClick={onClickPoster}
-        title={video.title}
+        brand={video.brand}
       />
       ))
     }

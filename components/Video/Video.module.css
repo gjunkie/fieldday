@@ -1,3 +1,14 @@
+.video {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.video video {
+  max-width: 1500px;
+}
+
 .video img {
   display: flex;
   flex-direction: column;
@@ -5,8 +16,14 @@
 }
 
 .video .closeWrapper {
+  -webkit-font-smoothing: auto;
+  color: rgb(57,57,57);
   display: flex;
+  flex-grow: 1;
+  font-family: 'Montserrat';
   justify-content: flex-end;
+  max-width: 1500px;
+  width: 100%;
 }
 
 .video .close:hover {
@@ -16,5 +33,38 @@
 .video .close {
   background: none;
   border: none;
+  color: rgb(57,57,57);
+  font-family: 'Montserrat';
   font-size: 40px;
+}
+
+.left, .middle, .right {
+  flex-grow: 1;
+  margin-top: 40px;
+}
+
+.left {
+  text-transform: uppercase;
+}
+
+.right {
+  text-align: right;
+}
+
+.left h2 {
+  padding-right: 50px;
+}
+
+.brand {
+  letter-spacing: 5px;
+  margin: 0 0 10px;;
+}
+
+.title {
+  margin: 0;
+}
+
+.data {
+  font-size: 13px;
+  margin-bottom: 5px;
 }

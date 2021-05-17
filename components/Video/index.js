@@ -16,12 +16,19 @@ export const Video = ({
         Sorry, your browser doesn't support embedded videos.
       </video>
       <div className={styles.closeWrapper}>
-        <h2>{video.title}</h2>
-        <h4>{video.director}</h4>
-        <h4>{video.editor}</h4>
-        <h4>{video.soundDesigner}</h4>
-        <h4>{video.agency}</h4>
-        <button className={styles.close} onClick={onCloseVideo}>X</button>
+        <div className={styles.left}>
+          <h2 className={styles.brand}>{video.brand}</h2>
+          <h3 className={styles.title}>{video.title}</h3>
+        </div>
+        <div className={styles.middle}>
+          <div className={styles.data}>Sound Designer: {video.soundDesigner}</div>
+          <div className={styles.data}>Director: {video.director}</div>
+          <div className={styles.data}>Agency: {video.agency}</div>
+          <div className={styles.data}>Editor: {video.editor}</div>
+        </div>
+        <div className={styles.right}>
+          <button className={styles.close} onClick={onCloseVideo}>X</button>
+        </div>
       </div>
     </div>
   )
