@@ -1,9 +1,11 @@
-import * as React from 'react'
-import Head from 'next/head'
-import Modal from 'react-modal'
-import { getAllVideosForHome } from '../lib/graphcms'
-import { Carousel } from '../components/Carousel'
-import { Video } from '../components/Video'
+import * as React from 'react';
+import Head from 'next/head';
+import Modal from 'react-modal';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { FixedSizeList } from 'react-window';
+import { getAllVideosForHome } from '../lib/graphcms';
+import { Poster } from '../components/Poster';
+import { Video } from '../components/Video';
 
 import styles from '../styles/Home.module.css';
 
@@ -23,21 +25,50 @@ const modalStyles = {
   }
 }
 
-export default function Home({
-  videos,
-}) {
-  const [isModalOpen, setIsModalOpen] = React.useState(false)
-  const [activeVideo, setActiveVideo] = React.useState(null)
+export default function Home({ videos }) {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [activeVideo, setActiveVideo] = React.useState(null);
+  const [videosList, setPostList] = React.useState(videos);
+  const listRef = React.createRef();
+
+  React.useEffect(() => {
+    if (listRef.current) {
+      listRef.current.scrollToItem(500, "start");
+    }
+  }, [videosList]);
+
+  React.useEffect(() => {
+    let newList = videos;
+    for (let i = 0; i < 100; i++) {
+      newList = newList.concat(videos);
+    }
+    setPostList(newList);
+  }, [videos]);
 
   const toggleModal = React.useCallback(() => {
     setIsModalOpen(!isModalOpen)
-  }, [isModalOpen])
+  }, [isModalOpen]);
 
   const handlePosterClick = React.useCallback((id) => {
     toggleModal()
-    const video = videos.find(v => v.id === id)
+    const video = videosList.find(v => v.id === id)
     setActiveVideo(video)
-  }, [])
+  }, []);
+
+  const renderRow = ({ index, style }) => (
+    <div style={{
+        ...style,
+        top: `50px`
+      }}>
+      <Poster
+        id={videosList[index].id}
+        imgUrl={videosList[index].poster.url}
+        key={index}
+        onClick={handlePosterClick}
+        brand={videosList[index].brand}
+      />
+    </div>
+  );
 
   return (
     <>
@@ -62,7 +93,20 @@ export default function Home({
 
       <h1 className={styles.title}>field day</h1>
 
-      <Carousel onClickPoster={handlePosterClick} videos={videos} />
+      <AutoSizer>
+        {({width}) => (
+          <FixedSizeList
+            direction="horizontal"
+            height={700}
+            itemCount={videosList.length}
+            itemSize={150}
+            ref={listRef}
+            width={width}
+          >
+            {renderRow}
+          </FixedSizeList>
+        )}
+      </AutoSizer>
 
       <Modal
         isOpen={isModalOpen}

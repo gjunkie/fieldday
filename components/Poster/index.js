@@ -14,7 +14,7 @@ export const Poster = ({
   }
 
   return (
-    <li className={`${styles.item}`}>
+    <div className={`${styles.item}`}>
       <div className={`${styles.brand} ${isHoveringPoster ? styles.visible : ''}`}>{brand}</div>
       <div
         className={styles.hover}
@@ -27,6 +27,6 @@ export const Poster = ({
           <img src={imgUrl} alt={brand} />
         </div>
       </div>
-    </li>
+    </div>
   )
 }
