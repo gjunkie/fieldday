@@ -1,10 +1,8 @@
 import * as React from 'react';
 import Head from 'next/head';
 import Modal from 'react-modal';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import { FixedSizeList } from 'react-window';
 import { getAllVideosForHome } from '../lib/graphcms';
-import { Poster } from '../components/Poster';
+import { AnimatedList } from '../components/AnimatedList';
 import { Video } from '../components/Video';
 
 import styles from '../styles/Home.module.css';
@@ -29,13 +27,6 @@ export default function Home({ videos }) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [activeVideo, setActiveVideo] = React.useState(null);
   const [videosList, setPostList] = React.useState(videos);
-  const listRef = React.createRef();
-
-  React.useEffect(() => {
-    if (listRef.current) {
-      listRef.current.scrollToItem(500, "start");
-    }
-  }, [videosList]);
 
   React.useEffect(() => {
     let newList = videos;
@@ -50,25 +41,10 @@ export default function Home({ videos }) {
   }, [isModalOpen]);
 
   const handlePosterClick = React.useCallback((id) => {
-    toggleModal()
+    toggleModal();
     const video = videosList.find(v => v.id === id)
     setActiveVideo(video)
   }, []);
-
-  const renderRow = ({ index, style }) => (
-    <div style={{
-        ...style,
-        top: `50px`
-      }}>
-      <Poster
-        id={videosList[index].id}
-        imgUrl={videosList[index].poster.url}
-        key={index}
-        onClick={handlePosterClick}
-        brand={videosList[index].brand}
-      />
-    </div>
-  );
 
   return (
     <>
@@ -93,20 +69,10 @@ export default function Home({ videos }) {
 
       <h1 className={styles.title}>field day</h1>
 
-      <AutoSizer>
-        {({width}) => (
-          <FixedSizeList
-            direction="horizontal"
-            height={700}
-            itemCount={videosList.length}
-            itemSize={150}
-            ref={listRef}
-            width={width}
-          >
-            {renderRow}
-          </FixedSizeList>
-        )}
-      </AutoSizer>
+      <AnimatedList
+        onClickPoster={handlePosterClick}
+        videosList={videosList}
+      />
 
       <Modal
         isOpen={isModalOpen}

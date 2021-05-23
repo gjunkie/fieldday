@@ -1,0 +1,15 @@
+.carouselWrapper {
+  height: 525px;
+  width: 100%;
+}
+
+.controls {
+  color: #8f7819;
+  display: flex;
+  font-size: 3em;
+  justify-content: space-between;
+}
+
+.button:hover {
+  cursor: pointer;
+}

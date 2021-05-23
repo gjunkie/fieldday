@@ -8,13 +8,16 @@ export const Video = ({
 
   return (
     <div className={styles.video}>
-      <video controls width="100%" poster="">
-        {/* <source src="/media/cc0-videos/flower.webm" */}
-        {/*         type="video/webm"> */}
-        <source src={video.videoFile.url}
-                type="video/mp4" />
-        Sorry, your browser doesn't support embedded videos.
-      </video>
+      <div className={styles.wrapper}>
+        <h1 className={styles.siteTitle}>field day</h1>
+        <video controls width="100%" poster="">
+          {/* <source src="/media/cc0-videos/flower.webm" */}
+          {/*         type="video/webm"> */}
+          <source src={video.videoFile.url}
+                  type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
       <div className={styles.closeWrapper}>
         <div className={styles.left}>
           <h2 className={styles.brand}>{video.brand}</h2>
