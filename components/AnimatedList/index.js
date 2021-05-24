@@ -5,14 +5,29 @@ import { Poster } from '../Poster';
 
 import styles from './AnimatedList.module.css';
 
+function easeInOutQuint(t) {
+  return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+}
+
 export const AnimatedList = ({
   onClickPoster,
   videosList,
 }) => {
   const [firstVisiblePoster, setFirstVisiblePoster] = React.useState(500);
   const [isAnimatingList, setIsAnimatingList] = React.useState(false);
+  const [scrollOffsetInitial, setScrollOffsetInitial] = React.useState(0);
+  const [scrollOffsetFinal, setScrollOffsetFinal] = React.useState(0);
+  const [scrollToItem, setScrollToItem] = React.useState(500);
+  const [animationStartTime, setAnimationStartTime] = React.useState(undefined);
 
   const listRef = React.createRef();
+
+  React.useEffect(() => {
+    initAnimation();
+  }, [])
+  React.useEffect(() => {
+    animate();
+  }, [animationStartTime])
 
   React.useEffect(() => {
     if (listRef.current) {
@@ -26,17 +41,15 @@ export const AnimatedList = ({
     }
   }, [firstVisiblePoster]);
 
-  const animationComplete = () => {
-    setIsAnimatingList(false);
-  };
-
   const scrollLeft = () => {
-    setFirstVisiblePoster(firstVisiblePoster - 1);
+    console.log('lwft')
+    setScrollToItem(scrollToItem - 1);
     setIsAnimatingList(true);
   };
 
   const scrollRight = () => {
-    setFirstVisiblePoster(firstVisiblePoster + 1);
+    console.log('right')
+    setScrollToItem(scrollToItem + 1);
     setIsAnimatingList(true);
   };
 
@@ -55,8 +68,46 @@ export const AnimatedList = ({
     </div>
   );
 
-  const updateVisibleItem = ({ visibleStartIndex }) => {
+  const initAnimation = () => {
+    if (animationStartTime) {
+      throw Error('Animation in progress'); // You handle this however you want.
+    }
 
+    const itemSize = videosList.length;
+
+    setScrollOffsetFinal(scrollToItem * itemSize)
+    setAnimationStartTime(performance.now());
+  };
+
+  const animate = () => {
+    requestAnimationFrame(() => {
+      const duration = 500;
+      const now = performance.now();
+      const ellapsed = now - animationStartTime;
+      const scrollDelta = scrollOffsetFinal - scrollOffsetInitial;
+      const easedTime = easeInOutQuint(Math.min(1, ellapsed / duration));
+      const scrollOffset = scrollOffsetInitial + scrollDelta * easedTime;
+
+      if (listRef.current) {
+        listRef.current.scrollTo(scrollOffset);
+      }
+
+      console.log(ellapsed, duration)
+      if (ellapsed < duration) {
+        animate();
+      } else {
+        setAnimationStartTime(undefined);
+        setScrollOffsetInitial(scrollOffsetFinal);
+        setIsAnimatingList(false);
+      }
+    });
+  };
+
+  const onScroll = ({ scrollOffset, scrollUpdateWasRequested }) => {
+    console.log('scroll')
+    if (!scrollUpdateWasRequested) {
+      setScrollOffsetInitial(scrollOffset);
+    }
   };
 
   return (
@@ -66,12 +117,12 @@ export const AnimatedList = ({
           {({width}) => (
             <FixedSizeList
               direction="horizontal"
-              height={540}
+              height={570}
               itemCount={videosList.length}
               itemSize={155}
-              onItemsRendered={updateVisibleItem}
-              onAnimationComplete={animationComplete}
+              onScroll={onScroll}
               ref={listRef}
+              scrollToItem={scrollToItem}
               width={width}
             >
               {renderRow}

@@ -74,6 +74,14 @@ export default function Home({ videos }) {
         videosList={videosList}
       />
 
+      <div>
+        <h1 className={styles.title}>about</h1>
+      </div>
+
+      <div>
+        <h1 className={styles.title}>contact</h1>
+      </div>
+
       <Modal
         isOpen={isModalOpen}
         onRequestClose={toggleModal}
