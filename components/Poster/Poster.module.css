@@ -10,8 +10,7 @@
   /* clip-path: polygon(0% 0%, 205px 37px, 205px 500px, 0% 464px); */
   /* clip-path: polygon(0% 0%, 215px 37px, 200px 540px, 0% 510px); */
   clip-path: polygon(0% 0%, 215px 37px, 150px 516px, 0% 490px);
-  height: 580px;
-  margin: 0 3px;
+  height: 517px;
   overflow: hidden;
   position: relative;
   transform: rotate(-10deg);

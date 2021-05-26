@@ -76,6 +76,8 @@ export default function Home({ videos }) {
 
       <div>
         <h1 className={styles.title}>about</h1>
+        <p>FIELD DAY is a boutique sound design, mix and music company based out of Portland, OR. We work with filmmakers and creative agencies to bring their stories and ads to life through breathtaking sound.</p>
+        <p>FIELD DAY is creatively lead by Morgan Johnson & Noah Woodburn.</p>
       </div>
 
       <div>

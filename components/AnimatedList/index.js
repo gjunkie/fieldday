@@ -25,9 +25,9 @@ export const AnimatedList = ({
   React.useEffect(() => {
     initAnimation();
   }, [])
-  React.useEffect(() => {
-    animate();
-  }, [animationStartTime])
+  // React.useEffect(() => {
+  //   animate();
+  // }, [animationStartTime])
 
   React.useEffect(() => {
     if (listRef.current) {
@@ -42,7 +42,7 @@ export const AnimatedList = ({
   }, [firstVisiblePoster]);
 
   const scrollLeft = () => {
-    console.log('lwft')
+    console.log('left')
     setScrollToItem(scrollToItem - 1);
     setIsAnimatingList(true);
   };
@@ -56,7 +56,7 @@ export const AnimatedList = ({
   const renderRow = ({ index, style }) => (
     <div style={{
         ...style,
-        top: `50px`
+        paddingTop: `50px`
       }}>
       <Poster
         id={videosList[index].id}
@@ -92,7 +92,6 @@ export const AnimatedList = ({
         listRef.current.scrollTo(scrollOffset);
       }
 
-      console.log(ellapsed, duration)
       if (ellapsed < duration) {
         animate();
       } else {
@@ -104,11 +103,12 @@ export const AnimatedList = ({
   };
 
   const onScroll = ({ scrollOffset, scrollUpdateWasRequested }) => {
-    console.log('scroll')
     if (!scrollUpdateWasRequested) {
       setScrollOffsetInitial(scrollOffset);
     }
   };
+
+  console.log({firstVisiblePoster})
 
   return (
     <>
@@ -116,8 +116,8 @@ export const AnimatedList = ({
         <AutoSizer>
           {({width}) => (
             <FixedSizeList
-              direction="horizontal"
-              height={570}
+              layout="horizontal"
+              height={595}
               itemCount={videosList.length}
               itemSize={155}
               onScroll={onScroll}
@@ -132,7 +132,7 @@ export const AnimatedList = ({
       </div>
       <div className={styles.controls}>
         <div
-          aria-role="button"
+          role="button"
           className={styles.button}
           disabled={isAnimatingList}
           onClick={scrollLeft}
@@ -140,7 +140,7 @@ export const AnimatedList = ({
           &#60;
         </div>
         <div
-          aria-role="button"
+          role="button"
           className={styles.button}
           disabled={isAnimatingList}
           onClick={scrollRight}
