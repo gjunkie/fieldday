@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Modal from 'react-modal';
 import { getAllVideosForHome } from '../lib/graphcms';
 import { AnimatedList } from '../components/AnimatedList';
+import { Logo } from '../components/Logo';
 import { Video } from '../components/Video';
 
 import styles from '../styles/Home.module.css';
@@ -67,21 +68,24 @@ export default function Home({ videos }) {
         <meta property="og:description" content="" key="ogdesc" />
       </Head>
 
-      <h1 className={styles.title}>field day</h1>
+      <div className={styles.top}>
+        <h1 className={styles.title}>field day</h1>
+        <Logo />
+      </div>
 
       <AnimatedList
         onClickPoster={handlePosterClick}
         videosList={videosList}
       />
 
-      <div>
-        <h1 className={styles.title}>about</h1>
-        <p>FIELD DAY is a boutique sound design, mix and music company based out of Portland, OR. We work with filmmakers and creative agencies to bring their stories and ads to life through breathtaking sound.</p>
-        <p>FIELD DAY is creatively lead by Morgan Johnson & Noah Woodburn.</p>
+      <div className={styles.section}>
+        <h2 className={styles.heading}>about</h2>
+        <p>Field Day is a boutique sound design, mix and music company based out of Portland, OR. We work with filmmakers and creative agencies to bring their stories and ads to life through breathtaking sound.</p>
+        <p>Field Day is creatively lead by Morgan Johnson & Noah Woodburn.</p>
       </div>
 
-      <div>
-        <h1 className={styles.title}>contact</h1>
+      <div className={styles.section}>
+        <h2 className={styles.heading}>contact</h2>
       </div>
 
       <Modal

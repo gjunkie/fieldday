@@ -108,8 +108,6 @@ export const AnimatedList = ({
     }
   };
 
-  console.log({firstVisiblePoster})
-
   return (
     <>
       <div className={styles.carouselWrapper}>

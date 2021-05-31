@@ -88,3 +88,25 @@
   font-size: 13px;
   margin-bottom: 5px;
 }
+
+@media (max-width: 600px) {
+  .siteTitle {
+    display: none;
+  }
+
+  .left, .middle, .right {
+    margin-top: 15px;
+  }
+
+  .left {
+    padding-left: 20px;
+  }
+
+  .brand {
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+}
