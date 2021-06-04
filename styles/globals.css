@@ -16,6 +16,15 @@
        url('/fonts/Montserrat/Montserrat-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+  font-family: 'Montserrat-ExtraLight';
+  src: url('/fonts/Montserrat/Montserrat-ExtraLight.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/Montserrat/Montserrat-ExtraLight?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/Montserrat/Montserrat-ExtraLight.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/Montserrat/Montserrat-ExtraLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/Montserrat/Montserrat-ExtraLight.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 html,
 body {
   background-color: #e4e3dd;
