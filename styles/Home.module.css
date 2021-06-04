@@ -24,8 +24,8 @@
   z-index: 1;
 }
 
-.wrapper .title {
-  color: #c36f04;
+.title {
+  color: rgb(246,147,23);
   font-family: 'GroovyScript';
   font-weight: 300;
   font-size: 7rem;
@@ -84,8 +84,17 @@
 
 @media (max-width: 600px) {
   .title {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
+
+  .wrapper .group {
+    margin-left: 60px;
+  }
+
+.wrapper .blurb {
+  left: -25px;
+  top: 30px;
+}
 
   .section {
     margin: 0 25px;
