@@ -68,39 +68,48 @@ export default function Home({ videos }) {
         <meta property="og:description" content="" key="ogdesc" />
       </Head>
 
-      <div className={styles.top}>
-        <h1 className={styles.title}>field day</h1>
-        <Logo />
+      <div className={styles.wrapper}>
+        <div className={styles.group}>
+          <h1 className={styles.title}>field day</h1>
+          <div className={styles.blurb}>sound design | mix | custom music</div>
+        </div>
+        <a href="mailto:leslie@fielddaysound.tv">Work with us</a>
+        <div className={styles.background}></div>
       </div>
-
-      <AnimatedList
-        onClickPoster={handlePosterClick}
-        videosList={videosList}
-      />
-
-      <div className={styles.section}>
-        <h2 className={styles.heading}>about</h2>
-        <p>Field Day is a boutique sound design, mix and music company based out of Portland, OR. We work with filmmakers and creative agencies to bring their stories and ads to life through breathtaking sound.</p>
-        <p>Field Day is creatively lead by Morgan Johnson & Noah Woodburn.</p>
-      </div>
-
-      <div className={styles.section}>
-        <h2 className={styles.heading}>contact</h2>
-      </div>
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={toggleModal}
-        contentLabel="Post modal"
-        style={modalStyles}
-      >
-        { activeVideo ? (
-          <Video
-            onCloseVideo={toggleModal}
-            video={activeVideo}
-          />
-        ) : null }
-      </Modal>
+        
+{/*       <div className={styles.top}> */}
+{/*         <h1 className={styles.title}>field day</h1> */}
+{/*         <Logo /> */}
+{/*       </div> */}
+{/*  */}
+{/*       <AnimatedList */}
+{/*         onClickPoster={handlePosterClick} */}
+{/*         videosList={videosList} */}
+{/*       /> */}
+{/*  */}
+{/*       <div className={styles.section}> */}
+{/*         <h2 className={styles.heading}>about</h2> */}
+{/*         <p>Field Day is a boutique sound design, mix and music company based out of Portland, OR. We work with filmmakers and creative agencies to bring their stories and ads to life through breathtaking sound.</p> */}
+{/*         <p>Field Day is creatively lead by Morgan Johnson & Noah Woodburn.</p> */}
+{/*       </div> */}
+{/*  */}
+{/*       <div className={styles.section}> */}
+{/*         <h2 className={styles.heading}>contact</h2> */}
+{/*       </div> */}
+{/*  */}
+{/*       <Modal */}
+{/*         isOpen={isModalOpen} */}
+{/*         onRequestClose={toggleModal} */}
+{/*         contentLabel="Post modal" */}
+{/*         style={modalStyles} */}
+{/*       > */}
+{/*         { activeVideo ? ( */}
+{/*           <Video */}
+{/*             onCloseVideo={toggleModal} */}
+{/*             video={activeVideo} */}
+{/*           /> */}
+{/*         ) : null } */}
+{/*       </Modal> */}
     </>
   )
 }
