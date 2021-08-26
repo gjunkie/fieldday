@@ -9,11 +9,11 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('/fonts/Montserrat/Montserrat-Regular.eot'); /* IE9 Compat Modes */
-  src: url('/fonts/Montserrat/Montserrat-Regular?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/Montserrat/Montserrat-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('/fonts/Montserrat/Montserrat-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/Montserrat/Montserrat-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+  src: url('/fonts/quicksand/Quicksand.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/quicksand/Quicksand?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/quicksand/Quicksand.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/quicksand/Quicksand.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/quicksand/Quicksand.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
 @font-face {

@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  height: 120px;
+}
+
+.header h1 {
+  color: rgb(246,147,23);
+  flex-grow: 1;
+  font-family: 'GroovyScript';
+  font-weight: 300;
+  font-size: 5rem;
+  margin: 33px 0 0 95px;
+  position: relative;
+  z-index: 1;
+}
+
+.header nav {
+  align-items: flex-end;
+  display: flex;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.nav li {
+  color: rgb(204, 132, 0);
+  font-family: 'Quicksand';
+  font-size: 1.7rem;
+  margin: 0 5px;
+}
+
+.nav li:not(:last-child):after {
+  content: " /";
+}
+
+.nav a:hover,
+.nav .active {
+  border-bottom: 1px solid;
+  border-bottom-color: rgb(204, 132, 0);
+}
+
+@media (max-width: 600px) {
+}
