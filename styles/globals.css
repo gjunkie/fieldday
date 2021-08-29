@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Quicksand';
   src: url('/fonts/quicksand/Quicksand.eot'); /* IE9 Compat Modes */
   src: url('/fonts/quicksand/Quicksand?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('/fonts/quicksand/Quicksand.woff') format('woff'), /* Pretty Modern Browsers */
@@ -27,7 +27,7 @@
 
 html,
 body {
-  background-color: #e4e3dd;
+  background-color: #ffffff;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -35,8 +35,12 @@ body {
 }
 
 a {
-  color: inherit;
+  color: rgb(204, 132, 0);
   text-decoration: none;
+}
+
+a:hover {
+  color: rgb(255 200 98);
 }
 
 * {
@@ -54,4 +58,8 @@ img {
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: transparent;
+}
+
+.framerWrapper {
+  position: relative;
 }

@@ -4,7 +4,6 @@
 }
 
 .header h1 {
-  color: rgb(246,147,23);
   flex-grow: 1;
   font-family: 'GroovyScript';
   font-weight: 300;
@@ -14,9 +13,14 @@
   z-index: 1;
 }
 
+.header h1 a {
+  color: rgb(243, 155, 55);
+}
+
 .header nav {
   align-items: flex-end;
   display: flex;
+  padding-right: 40px;
 }
 
 .nav {
@@ -26,9 +30,8 @@
 }
 
 .nav li {
-  color: rgb(204, 132, 0);
   font-family: 'Quicksand';
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   margin: 0 5px;
 }
 
@@ -36,10 +39,14 @@
   content: " /";
 }
 
-.nav a:hover,
 .nav .active {
   border-bottom: 1px solid;
   border-bottom-color: rgb(204, 132, 0);
+}
+
+.nav a:hover {
+  border-bottom: 1px solid;
+  border-bottom-color: rgb(255, 200, 98);
 }
 
 @media (max-width: 600px) {

@@ -28,8 +28,8 @@ export default function Home({ videos }) {
         <meta property="og:description" content="" key="ogdesc" />
       </Head>
 
+      <Header />
       <main>
-        <Header />
         {videos.map((video, index) => (
            <Video
              key={index}
