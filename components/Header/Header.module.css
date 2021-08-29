@@ -36,6 +36,7 @@
 }
 
 .nav li:not(:last-child):after {
+  color: rgb(204, 132, 0);
   content: " /";
 }
 
