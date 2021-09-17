@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { motion } from "framer-motion";
+import 'video.js/dist/video-js.css';
+import '../components/Video/styles.css';
 
 import '../styles/globals.css';
 

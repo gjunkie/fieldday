@@ -4,6 +4,8 @@ import { getAllVideosForHome } from '../lib/graphcms';
 import { Header } from '../components/Header';
 import { Video } from '../components/Video';
 
+import styles from '../styles/Home.module.css';
+
 
 export default function Home({ videos }) {
 
@@ -29,13 +31,31 @@ export default function Home({ videos }) {
       </Head>
 
       <Header />
-      <main>
-        {videos.map((video, index) => (
+      <main className={styles.main}>
+        {videos.map((video, index) => {
+          const videoJsOptions = {
+            // techOrder: ['youtube'],
+            autoplay: false,
+            // aspectRatio: '8:16',
+            controls: true,
+            sources: [
+              {
+                src: video.videoFile.url,
+                type: 'video/mp4',
+              },
+            ],
+          };
+          return (
            <Video
+             brand={video.brand}
+             director={video.director}
+             editor={video.editor}
              key={index}
-             video={video}
+             options={videoJsOptions}
+             title={video.title}
            />
-        ))}
+          );
+        })}
       </main>
     </>
   )

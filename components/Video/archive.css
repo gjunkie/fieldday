@@ -1,9 +1,40 @@
 .video {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
   width: 100%;
+}
+
+.videojs > div {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: initial!important;
+  width: 100%;
+}
+
+.videojs > div:hover {
+  cursor: pointer;
+}
+
+.videojs > div > video {
+  object-fit: cover;
+  position: relative!important;
+}
+
+/* .videojs > div > button { */
+/*   border-radius: 40px!important; */
+/*   height: 60px!important; */
+/*   left: 50%!important; */
+/*   margin-left: -20px; */
+/*   margin-top: -20px; */
+/*   top: 50%!important; */
+/*   width: 60px!important; */
+/* } */
+
+.videojs > div > button > span:before {
+  position: initial!important;
 }
 
 .siteTitle {
@@ -35,7 +66,7 @@
   opacity: 0;
   position: absolute;
   transition-duration: 200ms;
-  width: 100%;
+  width: 300px;
 }
 
 .video .meta.visible {

@@ -12,6 +12,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
         </body>
       </Html>
     );

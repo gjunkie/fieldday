@@ -1,6 +1,10 @@
 .header {
   display: flex;
   height: 120px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .header h1 {
@@ -43,11 +47,6 @@
 .nav .active {
   border-bottom: 1px solid;
   border-bottom-color: rgb(204, 132, 0);
-}
-
-.nav a:hover {
-  border-bottom: 1px solid;
-  border-bottom-color: rgb(255, 200, 98);
 }
 
 @media (max-width: 600px) {
