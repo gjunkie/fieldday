@@ -23,13 +23,9 @@ export const Video = ({
   });
 
   React.useEffect(() => {
-  });
-
-  React.useEffect(() => {
     if (!entry) return;
     let timeout;
     if (inView) {
-      console.log(title)
       timeout = setTimeout(() => {
         entry.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
       }, 1500);
@@ -41,15 +37,9 @@ export const Video = ({
   React.useEffect(() => {
     if (videoEl == null) return
     const player = videojs(videoEl, options)
-    return () => {
-      player.dispose();
-    }
-  }, [options, videoEl]);
 
-  React.useEffect(() => {
-    if (!ref.current) return;
-    console.log({isPlaying})
-  }, [isPlaying]);
+    return () => player.dispose();
+  }, [options, videoEl]);
 
   const onPlay = () => {
     setIsPlaying(!isPlaying);
