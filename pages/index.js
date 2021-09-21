@@ -31,6 +31,7 @@ export default function Home({ videos }) {
       </Head>
 
       <Header />
+
       <main className={styles.main}>
         {videos.map((video, index) => {
           const videoJsOptions = {
