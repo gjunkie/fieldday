@@ -2,11 +2,11 @@ import * as React from 'react';
 import Head from 'next/head';
 import { getAllVideosForHome } from '../lib/graphcms';
 import { Header } from '../components/Header';
+import { Video } from '../components/Video';
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/SoundDesign.module.css';
 
-
-export default function Home({ videos }) {
+export default function SoundDesign({ videos }) {
 
   return (
     <>
@@ -32,13 +32,30 @@ export default function Home({ videos }) {
       <Header />
 
       <main className={styles.main}>
-        {/* <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline /> */}
-        <div className={styles.videoWrapper}>
-          <video playsInline autoPlay muted loop poster="/images/home-poster.png" id="bgvid">
-            {/* <source src="polina.webm" type="video/webm"> */}
-            <source src="/videos/home-bg.mp4" type="video/mp4" />
-          </video>
-        </div>
+        {videos.map((video, index) => {
+          const videoJsOptions = {
+            // techOrder: ['youtube'],
+            autoplay: false,
+            // aspectRatio: '8:16',
+            controls: true,
+            sources: [
+              {
+                src: video.videoFile.url,
+                type: 'video/mp4',
+              },
+            ],
+          };
+          return (
+           <Video
+             brand={video.brand}
+             director={video.director}
+             editor={video.editor}
+             key={index}
+             options={videoJsOptions}
+             title={video.title}
+           />
+          );
+        })}
       </main>
     </>
   )
