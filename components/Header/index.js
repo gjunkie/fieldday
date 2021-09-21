@@ -33,7 +33,7 @@ export const Header = () => {
         <h1 className={styles.title}><Link href="/">field day</Link></h1>
         <nav>
           <ul className={styles.nav}>
-            <li><Link href="/"><a className={router.pathname == '/' ? styles.active : ''}>sound design</a></Link></li>
+            <li><Link href="/sound-design"><a className={router.pathname == '/sound-design' ? styles.active : ''}>sound design</a></Link></li>
             <li><Link href="/mix"><a className={router.pathname == '/mix' ? styles.active : ''}>mix</a></Link></li>
             <li><Link href="/films"><a className={router.pathname == '/films' ? styles.active : ''}>films</a></Link></li>
             <li><Link href="/about"><a className={router.pathname == '/about' ? styles.active : ''}>about</a></Link></li>

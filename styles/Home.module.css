@@ -1,3 +1,18 @@
 .main {
   margin-top: 120px;
 }
+
+.main .videoWrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.main .videoWrapper video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
