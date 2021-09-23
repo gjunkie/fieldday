@@ -1,12 +1,11 @@
 import * as React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getAllVideosForHome } from '../lib/graphcms';
 import { Header } from '../components/Header';
 
 import styles from '../styles/Home.module.css';
 
-export default function Home({ videos }) {
+export default function Home() {
 
   return (
     <>
@@ -43,13 +42,4 @@ export default function Home({ videos }) {
       </main>
     </>
   )
-}
-
-export async function getStaticProps() {
-  const videos = await getAllVideosForHome()
-  return {
-    props: {
-      videos
-    }
-  }
 }
