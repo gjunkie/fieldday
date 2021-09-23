@@ -37,7 +37,7 @@ export default function Home({ videos }) {
         <div className={styles.videoWrapper}>
           <video playsInline autoPlay muted loop poster="/images/home-poster.png" id="bgvid">
             {/* <source src="polina.webm" type="video/webm"> */}
-            <source src="/videos/home-bg.mp4" type="video/mp4" />
+            <source src="/videos/home-bg.mov" type="video/mp4" />
           </video>
         </div>
       </main>
