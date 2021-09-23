@@ -28,7 +28,7 @@ export const Video = ({
     if (inView) {
       timeout = setTimeout(() => {
         entry.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
-      }, 1500);
+      }, 100);
     }
 
     return () => clearTimeout(timeout);

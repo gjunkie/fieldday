@@ -30,7 +30,6 @@ export const Header = () => {
       }}
     >
       <header className={styles.header}>
-        <h1 className={styles.title}><Link href="/">field day</Link></h1>
         <nav>
           <ul className={styles.nav}>
             <li><Link href="/sound-design"><a className={router.pathname == '/sound-design' ? styles.active : ''}>sound design</a></Link></li>
