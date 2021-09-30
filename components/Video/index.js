@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import * as Scroll from 'react-scroll';
 import videojs from 'video.js';
 import { useInView } from 'react-intersection-observer';
 // import './Video.module.css';
@@ -7,15 +8,16 @@ export const Video = ({
   brand,
   director,
   editor,
-  options,
+  isScrolling,
+  slug,
+  src,
   title
 }) => {
+  // let scroll = Scroll.animateScroll;
   const [isPlaying, setIsPlaying] = React.useState(false);
-
+  const [loaded, setLoaded] = React.useState(false)
   const [videoEl, setVideoEl] = React.useState(null)
-  const onVideo = React.useCallback((el) => {
-    setVideoEl(el)
-  }, [])
+  const [vid, setVid] = React.useState(null);
 
   const { ref, inView, entry } = useInView({
     threshold: 0,
@@ -23,30 +25,61 @@ export const Video = ({
   });
 
   React.useEffect(() => {
-    if (!entry) return;
+    if (!entry || isScrolling) return;
+
+    // hack to prevent auto scroll on first load.
+    if (!loaded) {
+      setLoaded(true);
+      return;
+    }
     let timeout;
+
     if (inView) {
       timeout = setTimeout(() => {
         entry.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
-      }, 100);
+        // Scroll.scroller.scrollTo(`video-${slug}`, {
+        //   duration: 200,
+        //   delay: 0,
+        //   smooth: 'easeInOutQuart'
+        // });
+      }, 150);
+    }
+
+    if (!inView) {
+      vid.pause();
     }
 
     return () => clearTimeout(timeout);
-  }, [inView]);
+  }, [inView, isScrolling]);
+
+  const onVideo = React.useCallback((el) => {
+    setVideoEl(el)
+  }, [])
 
   React.useEffect(() => {
     if (videoEl == null) return
-    const player = videojs(videoEl, options)
+    const player = videojs(videoEl, {
+      autoplay: false,
+      controls: true,
+      sources: [
+        {
+          src,
+          type: 'video/mp4',
+        },
+      ],
+
+    })
+    setVid(player);
 
     return () => player.dispose();
-  }, [options, videoEl]);
+  }, [videoEl]);
 
   const onPlay = () => {
     setIsPlaying(!isPlaying);
   };
 
   return (
-    <div className="video videojs" ref={ref}>
+    <div className={`video videojs video-${slug}`} ref={ref}>
       <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline />
       <div className={`meta ${isPlaying ? '' : 'visible'}`}>
         <div className="left">

@@ -7,6 +7,7 @@ import styles from './Header.module.css';
 
 export const Header = () => {
   const router = useRouter();
+  const isHomePage = router.pathname === '/';
 
   return (
     <motion.div
@@ -30,8 +31,9 @@ export const Header = () => {
       }}
     >
       <header className={styles.header}>
-        <nav>
-          <ul className={styles.nav}>
+        <nav className={styles.nav}>
+          {!isHomePage && (<h1><Link href="/">field day</Link></h1>)}
+          <ul className={styles.navList}>
             <li><Link href="/sound-design"><a className={router.pathname == '/sound-design' ? styles.active : ''}>sound design</a></Link></li>
             <li><Link href="/mix"><a className={router.pathname == '/mix' ? styles.active : ''}>mix</a></Link></li>
             <li><Link href="/films"><a className={router.pathname == '/films' ? styles.active : ''}>films</a></Link></li>

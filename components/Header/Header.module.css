@@ -1,37 +1,54 @@
 .header {
-  display: flex;
   height: 120px;
-  flex-direction: row;
-  justify-content: flex-end;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 10;
 }
 
-.header nav {
-  align-items: flex-end;
+.header .navList {
   display: flex;
   padding-right: 40px;
 }
 
 .nav {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.navList {
   display: flex;
   flex-direction: row;
+  flex-grow: 1;
+  justify-content: flex-end;
   list-style-type: none;
 }
 
-.nav li {
+.nav h1 {
+  color: rgb(243, 155, 55);
+  font-family: 'GroovyScript';
+  font-weight: 300;
+  font-size: 4.5rem;
+  margin: 0 0 0 100px;
+}
+
+.nav h1 a {
+  color: rgb(243, 155, 55);
+}
+
+.navList li {
   font-family: 'Quicksand';
   font-size: 1.5rem;
   margin: 0 5px;
 }
 
-.nav li:not(:last-child):after {
+.navList li:not(:last-child):after {
   color: rgb(204, 132, 0);
   content: " /";
 }
 
-.nav .active {
+.navList .active {
   border-bottom: 1px solid;
   border-bottom-color: rgb(204, 132, 0);
 }
@@ -41,10 +58,15 @@
     padding-right: initial;
     justify-content: center;
   }
-  .nav {
+  .navList {
     padding-right: 0;
   }
-  .nav li {
+
+  .nav h1 {
+    font-size: 5rem;
+    margin-left: -110px;
+  }
+  .navList li {
     font-size: 1.3rem;
   }
 }

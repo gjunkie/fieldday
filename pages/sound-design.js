@@ -4,9 +4,35 @@ import { getAllVideosForHome } from '../lib/graphcms';
 import { Header } from '../components/Header';
 import { Video } from '../components/Video';
 
-import styles from '../styles/SoundDesign.module.css';
-
 export default function SoundDesign({ videos }) {
+  const [isScrolling, setIsScrolling] = React.useState(false);
+  const [scrollTop, setScrollTop] = React.useState(0);
+  const throttleRef = React.useRef(null);
+
+  // The scroll listener
+  const handleScroll = React.useCallback((e) => {
+    if (isScrolling) return;
+    setScrollTop(e.target.documentElement.scrollTop);
+    // setIsScrolling(true);
+  }, []);
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    let timeout;
+    throttleRef.current = true;
+    timeout = setTimeout(() => {
+      throttleRef.current = false;
+      setIsScrolling(false);
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [isScrolling, scrollTop]);
 
   return (
     <>
@@ -31,28 +57,18 @@ export default function SoundDesign({ videos }) {
 
       <Header />
 
-      <main className={styles.main}>
+      <main>
         {videos.map((video, index) => {
-          const videoJsOptions = {
-            // techOrder: ['youtube'],
-            autoplay: false,
-            // aspectRatio: '8:16',
-            controls: true,
-            sources: [
-              {
-                src: video.videoFile.url,
-                type: 'video/mp4',
-              },
-            ],
-          };
           return (
            <Video
-             brand={video.brand}
-             director={video.director}
-             editor={video.editor}
-             key={index}
-             options={videoJsOptions}
-             title={video.title}
+              brand={video.brand}
+              director={video.director}
+              editor={video.editor}
+              isScrolling={isScrolling}
+              key={index}
+              slug={video.slug}
+              src={video.videoFile.url}
+              title={video.title}
            />
           );
         })}

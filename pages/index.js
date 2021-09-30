@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import { Header } from '../components/Header';
 
 import styles from '../styles/Home.module.css';
@@ -32,7 +31,7 @@ export default function Home() {
 
       <main className={styles.main}>
         {/* <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline /> */}
-        <h1><Link href="/">field day</Link></h1>
+        <h1>field day</h1>
         <div className={styles.videoWrapper}>
           <video playsInline autoPlay muted loop poster="/images/home-poster.png" id="bgvid">
             {/* <source src="polina.webm" type="video/webm"> */}
