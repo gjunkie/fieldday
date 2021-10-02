@@ -6,8 +6,13 @@ import { motion } from "framer-motion";
 import styles from './Header.module.css';
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const router = useRouter();
   const isHomePage = router.pathname === '/';
+
+  const onClickMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <motion.div
@@ -31,14 +36,23 @@ export const Header = () => {
       }}
     >
       <header className={styles.header}>
-        <nav className={styles.nav}>
+        <nav className={styles.nav} role="navigation">
           {!isHomePage && (<h1><Link href="/">field day</Link></h1>)}
-          <ul className={styles.navList}>
-            <li><Link href="/sound-design"><a className={router.pathname == '/sound-design' ? styles.active : ''}>sound design</a></Link></li>
-            <li><Link href="/mix"><a className={router.pathname == '/mix' ? styles.active : ''}>mix</a></Link></li>
-            <li><Link href="/films"><a className={router.pathname == '/films' ? styles.active : ''}>films</a></Link></li>
-            <li><Link href="/about"><a className={router.pathname == '/about' ? styles.active : ''}>about</a></Link></li>
-          </ul>
+          <div className={styles.menuToggle}>
+            <div className={styles.hamburger}>
+              <input type="checkbox" checked={isMenuOpen} onClick={onClickMenu} />
+
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <ul className={`${styles.navList} ${isMenuOpen ? styles.openMenu : ''}`}>
+              <li><Link href="/sound-design"><a className={router.pathname == '/sound-design' ? styles.active : ''}>sound design</a></Link></li>
+              <li><Link href="/mix"><a className={router.pathname == '/mix' ? styles.active : ''}>mix</a></Link></li>
+              <li><Link href="/films"><a className={router.pathname == '/films' ? styles.active : ''}>films</a></Link></li>
+              <li><Link href="/about"><a className={router.pathname == '/about' ? styles.active : ''}>about</a></Link></li>
+            </ul>
+          </div>
         </nav>
       </header>
     </motion.div>
