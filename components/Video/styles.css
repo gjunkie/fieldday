@@ -133,6 +133,10 @@
     display: none;
   }
 
+  .video .meta {
+    bottom: 5px;
+  }
+
   .left {
     margin-top: 15px;
   }
@@ -147,5 +151,9 @@
 
   .title {
     font-size: 1rem;
+  }
+
+  .data {
+    display: none;
   }
 }
