@@ -6,7 +6,6 @@
 }
 
 .nav {
-  display: flex;
   height: 100%;
   width: 100%;
 }
@@ -212,8 +211,9 @@
   }
 
   .nav h1 {
-    font-size: 5rem;
-    margin-left: -110px;
+    font-size: 3.5rem;
+    left: -40px;
+    width: 200px;
   }
 
   .navList {
