@@ -1,3 +1,9 @@
+.main {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
 .main .videoWrapper {
   position: fixed;
   height: 100%;

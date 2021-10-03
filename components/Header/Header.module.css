@@ -212,15 +212,21 @@
 
   .nav h1 {
     font-size: 3.5rem;
+    font-weight: 300;
+    height: 120px;
     left: -40px;
+    line-height: 125px;
+    margin-left: 80px;
+    margin: 0;
     width: 200px;
+    z-index: 1;
   }
 
   .navList {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    padding-right: 0;
+    padding: 0;
     transform: translate(0px, -100vh);
   }
 
