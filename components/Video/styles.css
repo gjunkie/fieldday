@@ -24,6 +24,7 @@
 }
 
 .video-js.vjs-playing .vjs-big-play-button {
+  display: none!important;
   opacity: 0;
 }
 

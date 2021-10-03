@@ -36,7 +36,7 @@ export const Video = ({
 
     if (inView) {
       timeout = setTimeout(() => {
-        entry.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
+        // entry.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
         // Scroll.scroller.scrollTo(`video-${slug}`, {
         //   duration: 200,
         //   delay: 0,
@@ -70,11 +70,25 @@ export const Video = ({
 
     })
     setVid(player);
+    player.on('touchstart', function (e) {
+      console.log(e.target.nodeName)
+      if (e.target.nodeName === 'VIDEO' || e.target.nodeName === 'SPAN') {
+        if (player.paused()) {
+          console.log('play')
+          player.play();
+        } else {
+          console.log('pause')
+          player.pause();
+        }
+        onPlay();
+      }
+    });
 
     return () => player.dispose();
   }, [videoEl]);
 
   const onPlay = () => {
+    console.log('set')
     setIsPlaying(!isPlaying);
   };
 
