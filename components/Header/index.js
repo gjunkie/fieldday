@@ -36,7 +36,7 @@ export const Header = () => {
       }}
     >
       <header className={styles.header}>
-        <nav className={styles.nav} role="navigation">
+        <nav className={`${styles.nav} ${isMenuOpen ? styles.openMenu : ''}`} role="navigation">
           {!isHomePage && (<h1><Link href="/">field day</Link></h1>)}
           <div className={styles.menuToggle}>
             <div className={styles.hamburger}>

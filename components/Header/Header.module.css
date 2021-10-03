@@ -78,11 +78,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  
   z-index: 1;
-  
   -webkit-user-select: none;
   user-select: none;
+}
+
+.nav.openMenu .menuToggle {
+  z-index: 2;
 }
 
 .menuToggle a {
@@ -214,12 +216,12 @@
     font-size: 3.5rem;
     font-weight: 300;
     height: 120px;
-    left: -40px;
+    left: 45px;
     line-height: 125px;
     margin-left: 80px;
     margin: 0;
+    top: 0px;
     width: 200px;
-    z-index: 1;
   }
 
   .navList {

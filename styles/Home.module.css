@@ -25,11 +25,7 @@
   font-family: 'GroovyScript';
   font-weight: 300;
   font-size: 12rem;
-  margin-left: -300px;
-  margin-top: -100px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  text-align: center;
   z-index: 1;
 }
 
@@ -39,7 +35,12 @@
 
 @media (max-width: 800px) {
   .main h1 {
-    font-size: 5rem;
-    margin-left: -110px;
+    font-size: 4.5rem;
+    font-weight: 300;
+    height: 120px;
+    line-height: 125px;
+    margin: 0 0 0 45px;
+    width: 200px;
+    z-index: 1;
   }
 }
