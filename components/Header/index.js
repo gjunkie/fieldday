@@ -40,7 +40,7 @@ export const Header = () => {
           {!isHomePage && (<h1><Link href="/">field day</Link></h1>)}
           <div className={styles.menuToggle}>
             <div className={styles.hamburger}>
-              <input type="checkbox" checked={isMenuOpen} onClick={onClickMenu} />
+              <input type="checkbox" onClick={onClickMenu} />
 
               <span></span>
               <span></span>

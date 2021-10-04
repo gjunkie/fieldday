@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 // import './Video.module.css';
 
 export const Video = ({
+  agency,
   brand,
   director,
   editor,
@@ -97,7 +98,7 @@ export const Video = ({
         <div className="left">
           <h2 className="brand">{brand}</h2>
           <h3 className="title">{title}</h3>
-          <div className="data">Editor - {editor}</div>
+          <div className="data">Agency - {agency}</div>
           <div className="data">Director - {director}</div>
         </div>
       </div>
