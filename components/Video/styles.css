@@ -92,10 +92,14 @@
   opacity: 0;
   position: absolute;
   transition-duration: 200ms;
-  width: 300px;
+  width: 400px;
 }
 
-.video .meta.visible {
+/* .video .meta.visible { */
+/*   opacity: 1; */
+/* } */
+
+.video:not(.isPlaying):hover .meta {
   opacity: 1;
 }
 
@@ -136,6 +140,7 @@
 
   .video .meta {
     bottom: 5px;
+    display: none;
   }
 
   .left {

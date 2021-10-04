@@ -1,38 +1,58 @@
 import * as React from 'react';
+import ScrollSnap from 'scroll-snap';
 import Head from 'next/head';
 import { getAllVideosForHome } from '../lib/graphcms';
 import { Header } from '../components/Header';
 import { Video } from '../components/Video';
 
+import styles from '../styles/SoundDesign.module.css';
+
+function callback() {
+  console.log('snapped')
+}
+
 export default function SoundDesign({ videos }) {
-  const [isScrolling, setIsScrolling] = React.useState(false);
-  const [scrollTop, setScrollTop] = React.useState(0);
-  const throttleRef = React.useRef(null);
+  // const [isScrolling, setIsScrolling] = React.useState(false);
+  // const [scrollTop, setScrollTop] = React.useState(0);
+  // const throttleRef = React.useRef(null);
+  const containerRef = React.useRef(null);
 
   // The scroll listener
-  const handleScroll = React.useCallback((e) => {
-    if (isScrolling) return;
-    setScrollTop(e.target.documentElement.scrollTop);
-    // setIsScrolling(true);
-  }, []);
+  // const handleScroll = React.useCallback((e) => {
+  //   if (isScrolling) return;
+  //   setScrollTop(e.target.documentElement.scrollTop);
+  //   // setIsScrolling(true);
+  // }, []);
 
   React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+//     if (!containerRef.current) return;
+//     console.log(containerRef)
+// 
+//     const element = containerRef.current;
+//     const snapElement = new ScrollSnap(element, {
+//       snapDestinationY: '40%',
+//     });
+// 
+//     snapElement.bind(callback);
   }, []);
 
-  React.useEffect(() => {
-    let timeout;
-    throttleRef.current = true;
-    timeout = setTimeout(() => {
-      throttleRef.current = false;
-      setIsScrolling(false);
-    }, 100);
+  // React.useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-    return () => clearTimeout(timeout);
-  }, [isScrolling, scrollTop]);
+//   React.useEffect(() => {
+//     let timeout;
+//     throttleRef.current = true;
+//     timeout = setTimeout(() => {
+//       throttleRef.current = false;
+//       setIsScrolling(false);
+//     }, 100);
+// 
+//     return () => clearTimeout(timeout);
+//   }, [isScrolling, scrollTop]);
 
   return (
     <>
@@ -57,19 +77,19 @@ export default function SoundDesign({ videos }) {
 
       <Header />
 
-      <main>
+      <main className={styles.main} ref={containerRef}>
         {videos.map((video, index) => {
           return (
-           <Video
+            <Video
               brand={video.brand}
               director={video.director}
               editor={video.editor}
-              isScrolling={isScrolling}
+              // isScrolling={isScrolling}
               key={index}
               slug={video.slug}
               src={video.videoFile.url}
               title={video.title}
-           />
+            />
           );
         })}
       </main>
