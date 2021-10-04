@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ScrollSnap from 'scroll-snap';
+// import ScrollSnap from 'scroll-snap';
 import Head from 'next/head';
 import { getAllVideosForHome } from '../lib/graphcms';
 import { Header } from '../components/Header';
@@ -7,9 +7,9 @@ import { Video } from '../components/Video';
 
 import styles from '../styles/SoundDesign.module.css';
 
-function callback() {
-  console.log('snapped')
-}
+// function callback() {
+//   console.log('snapped')
+// }
 
 export default function SoundDesign({ videos }) {
   // const [isScrolling, setIsScrolling] = React.useState(false);
