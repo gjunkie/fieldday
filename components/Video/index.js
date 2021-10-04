@@ -7,7 +7,6 @@ export const Video = ({
   agency,
   brand,
   director,
-  editor,
   isScrolling,
   poster,
   slug,
