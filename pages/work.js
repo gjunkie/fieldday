@@ -102,6 +102,7 @@ export async function getStaticProps() {
   return {
     props: {
       videos
-    }
+    },
+    revalidate: 10 // in seconds
   }
 }
