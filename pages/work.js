@@ -81,6 +81,7 @@ export default function SoundDesign({ videos }) {
         {videos.map((video, index) => {
           return (
             <Video
+              agency={video.agency}
               brand={video.brand}
               director={video.director}
               editor={video.editor}
