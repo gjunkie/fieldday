@@ -86,6 +86,7 @@ export default function SoundDesign({ videos }) {
               editor={video.editor}
               // isScrolling={isScrolling}
               key={index}
+              poster={video.poster}
               slug={video.slug}
               src={video.videoFile.url}
               title={video.title}

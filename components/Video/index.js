@@ -8,6 +8,7 @@ export const Video = ({
   director,
   editor,
   isScrolling,
+  poster,
   slug,
   src,
   title
@@ -59,6 +60,7 @@ export const Video = ({
     const player = videojs(videoEl, {
       autoplay: false,
       controls: true,
+      poster: poster.url,
       sources: [
         {
           src,
