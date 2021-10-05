@@ -32,12 +32,12 @@ export default function Home() {
       <main className={styles.main}>
         {/* <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline /> */}
         <h1>field day</h1>
-        <div className={styles.videoWrapper}>
-          {/* <video playsInline autoPlay muted loop poster="/images/home-poster.png" id="bgvid"> */}
-          {/*   {/* <source src="polina.webm" type="video/webm"> */} */}
-          {/*   <source src="/videos/home-bg.mov" type="video/mp4" /> */}
-          {/* </video> */}
-        </div>
+        {/* <div className={styles.videoWrapper}> */}
+        {/*   <video playsInline autoPlay muted loop poster="/images/home-poster.png" id="bgvid"> */}
+        {/*     {/* <source src="polina.webm" type="video/webm"> } */}
+        {/*     <source src="/videos/home-bg.mov" type="video/mp4" /> */}
+        {/*   </video> */}
+        {/* </div> */}
       </main>
     </>
   )
