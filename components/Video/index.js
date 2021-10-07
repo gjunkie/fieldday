@@ -60,7 +60,7 @@ export const Video = ({
     const player = videojs(videoEl, {
       autoplay: false,
       controls: true,
-      poster: poster.url,
+      poster: poster && poster.url,
       sources: [
         {
           src,

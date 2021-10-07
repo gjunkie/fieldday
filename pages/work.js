@@ -89,7 +89,7 @@ export default function SoundDesign({ videos }) {
               key={index}
               poster={video.poster}
               slug={video.slug}
-              src={video.videoFile.url}
+              src={video.videoLink}
               title={video.title}
             />
           );

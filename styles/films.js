@@ -9,6 +9,7 @@ export const Main = styled.main`
   -moz-column-gap:      0px;
   column-count:         3;
   column-gap:           0px;
+  padding-top:           103px;
 `;
 
 export const Image = styled.img`
