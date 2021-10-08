@@ -10,6 +10,12 @@ export const Main = styled.main`
   column-count:         3;
   column-gap:           0px;
   padding-top:           103px;
+
+  @media (max-width: 800px) {
+    -webkit-column-count: 2;
+    -moz-column-count:    2;
+    column-count:         2;
+  }
 `;
 
 export const Image = styled.img`
