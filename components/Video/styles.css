@@ -10,7 +10,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  height: initial!important;
   width: 100%;
 }
 
@@ -56,6 +55,16 @@
   height: 60px;
   justify-content: center;
   width: 60px;
+}
+
+.vjs-poster {
+  background-size: cover;
+  filter: blur(5px);
+  transition-duration: 500ms;
+}
+
+.videojs.posterLoaded .vjs-poster {
+  filter: blur(0px);
 }
 
 .videojs > div > button > span:before {

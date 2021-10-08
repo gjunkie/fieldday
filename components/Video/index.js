@@ -8,15 +8,17 @@ export const Video = ({
   brand,
   director,
   isScrolling,
+  posterPlaceholder,
   poster,
   slug,
   src,
   title
 }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
-  const [loaded, setLoaded] = React.useState(false)
-  const [videoEl, setVideoEl] = React.useState(null)
+  const [loaded, setLoaded] = React.useState(false);
+  const [videoEl, setVideoEl] = React.useState(null);
   const [vid, setVid] = React.useState(null);
+  const [isPosterLoaded, setIsPosterLoaded] = React.useState(false);
 
   const { ref, inView, entry } = useInView({
     threshold: 0,
@@ -60,7 +62,8 @@ export const Video = ({
     const player = videojs(videoEl, {
       autoplay: false,
       controls: true,
-      poster: poster && poster.url,
+      poster: posterPlaceholder && posterPlaceholder.url,
+      fill: true,
       sources: [
         {
           src,
@@ -82,6 +85,20 @@ export const Video = ({
       }
     });
 
+    if (poster && posterPlaceholder) {
+      console.log(poster, posterPlaceholder)
+      const imgLarge = new Image();
+      imgLarge.src = poster.url;
+      imgLarge.onload = function () {
+        console.log('LOADED', imgLarge.src)
+        // imgLarge.classList.add('loaded');
+        player.poster(imgLarge.src);
+        setTimeout(() => {
+          setIsPosterLoaded(true);
+        }, 1000)
+      };
+    }
+
     return () => player.dispose();
   }, [videoEl]);
 
@@ -91,7 +108,7 @@ export const Video = ({
   };
 
   return (
-    <div className={`video videojs video-${slug} ${isPlaying ? 'isPlaying' : ''}`} ref={ref}>
+    <div className={`video videojs video-${slug} ${isPlaying ? 'isPlaying' : ''} ${isPosterLoaded ? 'posterLoaded' : ''}`} ref={ref}>
       <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline />
       <div className={`meta ${isPlaying ? '' : 'visible'}`}>
         <div className="left">

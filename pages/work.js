@@ -88,6 +88,7 @@ export default function SoundDesign({ videos }) {
               // isScrolling={isScrolling}
               key={index}
               poster={video.poster}
+              posterPlaceholder={video.posterPlaceholder}
               slug={video.slug}
               src={video.videoLink}
               title={video.title}
