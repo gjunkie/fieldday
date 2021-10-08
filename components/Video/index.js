@@ -89,7 +89,6 @@ export const Video = ({
       const imgLarge = new Image();
       imgLarge.src = poster.url;
       imgLarge.onload = function () {
-        // imgLarge.classList.add('loaded');
         player.poster(imgLarge.src);
         setTimeout(() => {
           setIsPosterLoaded(true);

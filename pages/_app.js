@@ -9,7 +9,7 @@ const MyApp = ({ Component, pageProps, router }) => {
   return (
     <motion.div
       animate="pageAnimate"
-      className="framerWrapper"
+      className={router.pathname !== '/' ? 'framerWrapper' : ''}
       initial="pageInitial"
       key={router.route}
       variants={{
