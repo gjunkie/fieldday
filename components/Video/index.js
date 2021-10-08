@@ -86,16 +86,14 @@ export const Video = ({
     });
 
     if (poster && posterPlaceholder) {
-      console.log(poster, posterPlaceholder)
       const imgLarge = new Image();
       imgLarge.src = poster.url;
       imgLarge.onload = function () {
-        console.log('LOADED', imgLarge.src)
         // imgLarge.classList.add('loaded');
         player.poster(imgLarge.src);
         setTimeout(() => {
           setIsPosterLoaded(true);
-        }, 1000)
+        }, 1500)
       };
     }
 
@@ -103,7 +101,6 @@ export const Video = ({
   }, [videoEl]);
 
   const onPlay = () => {
-    console.log('set')
     setIsPlaying(!isPlaying);
   };
 
