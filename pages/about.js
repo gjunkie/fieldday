@@ -1,17 +1,14 @@
 import * as React from 'react';
 import { Header } from '../components/Header';
 
-import {
-  Content,
-  Main
-} from '../styles/about.js';
+import styles from '../styles/About.module.css';
 
 export default function About() {
   return (
     <>
       <Header />
-      <Main>
-        <Content>
+      <main className={styles.main}>
+        <div className={styles.wrapper}>
           <p>
             Field Day provides creative sound services that bring your ads, films and visual media to life in a fun, collaborative way.
           </p>
@@ -26,8 +23,8 @@ export default function About() {
           <div>
             Work with us: <a href="mailto:leslie@fielddaysound.tv">leslie@fielddaysound.tv</a>
           </div>
-        </Content>
-      </Main>
+        </div>
+      </main>
     </>
   );
 }
