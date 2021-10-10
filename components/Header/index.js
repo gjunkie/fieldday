@@ -47,8 +47,8 @@ export const Header = () => {
               <span></span>
             </div>
             <ul className={`${styles.navList} ${isMenuOpen ? styles.openMenu : ''}`}>
-              <li><Link href="/work"><a className={router.pathname == '/work' ? styles.active : ''}>work</a></Link></li>
-              {/* <li><Link href="/mix"><a className={router.pathname == '/mix' ? styles.active : ''}>mix</a></Link></li> */}
+              <li><Link href="/sound-design"><a className={router.pathname == '/sound-design' ? styles.active : ''}>sound design</a></Link></li>
+              <li><Link href="/mix"><a className={router.pathname == '/mix' ? styles.active : ''}>mix</a></Link></li>
               <li><Link href="/films"><a className={router.pathname == '/films' ? styles.active : ''}>films</a></Link></li>
               <li><Link href="/about"><a className={router.pathname == '/about' ? styles.active : ''}>about</a></Link></li>
             </ul>
