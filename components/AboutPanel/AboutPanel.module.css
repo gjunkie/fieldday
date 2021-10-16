@@ -1,0 +1,66 @@
+.aboutComponent {
+  position: absolute;
+}
+
+.aboutButton {
+  bottom: 20px;
+  position: fixed;
+  right: 20px;
+  z-index: 2;
+  transition-duration: 200ms;
+  height: 47px;
+  width: 47px;
+}
+
+.aboutButton:hover,
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.aboutButton:hover {
+  transform: rotate(360deg);
+}
+
+.aboutButton:active {
+  transform: scale(.9);
+}
+
+.closeButton {
+  top: 20px;
+  position: absolute;
+  right: 20px;
+}
+
+.aboutPanel {
+  background: white;
+  bottom: -300px;
+  box-shadow: black 0 27px 30px 20px;
+  color: #232323;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  left: 0;
+  line-height: 23px;
+  padding: 10px 20px 20px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 11;
+}
+
+.aboutPanel[data-isopen="true"] {
+  bottom: 0px;
+}
+
+.overlay {
+  display: none;
+}
+
+.overlay[data-isopen="true"] {
+  background: rgba(0,0,0,.6);
+  display: block;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}

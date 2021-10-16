@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { Header } from '../components/Header';
+import { AboutPanel } from '../components/AboutPanel';
 
 import styles from '../styles/Home.module.css';
 
@@ -51,6 +52,7 @@ export default function Home() {
             <source src="https://player.vimeo.com/external/624066986.hd.mp4?s=1cf6780146a1457147a74e2ac666dd0275043fe6&profile_id=174" type="video/mp4" />
           </video>
         </div>
+        <AboutPanel />
       </main>
     </>
   )
