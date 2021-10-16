@@ -33,11 +33,11 @@
 
 .aboutPanel {
   background: white;
-  bottom: -300px;
+  bottom: -200px;
   box-shadow: black 0 27px 30px 20px;
   color: #232323;
   display: flex;
-  height: 300px;
+  height: 200px;
   justify-content: center;
   left: 0;
   line-height: 23px;
@@ -63,4 +63,18 @@
   top: 0;
   width: 100%;
   z-index: 10;
+}
+
+@media (max-width: 1350px) {
+  .aboutPanel {
+    bottom: -240px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 800px) {
+  .aboutPanel {
+    bottom: -360px;
+    height: 360px;
+  }
 }
