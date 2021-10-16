@@ -44,7 +44,7 @@ export default function Home() {
       <Header />
 
       <main className={styles.main}>
-        <h1>field day</h1>
+        <h1 className="site-logo"><img className="" alt="Field Day Sound" src="images/field-day-sound-logo.png" /></h1>
         <div className={`${styles.videoWrapper} ${isPosterLoaded ? styles.posterLoaded : ''}`}>
           <div className={styles.videoOverlay} />
           <video playsInline autoPlay muted loop poster={posterUrl} id="bgvid">
