@@ -28,7 +28,7 @@
 }
 
 .videoOverlay {
-  background-image: radial-gradient(circle, rgb(255 255 255 / 50%) 1px, rgba(0, 0, 0, 0) 1px);
+  background-image: radial-gradient(circle, rgb(255 255 255 / 40%) 1px, rgba(0, 0, 0, 0) 1px);
   background-size: 3px 3px;
   bottom: 0;
   left: 0;
