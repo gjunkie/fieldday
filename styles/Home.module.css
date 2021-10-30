@@ -7,6 +7,8 @@
 .main .videoWrapper {
   filter: blur(5px);
   transition-duration: 500ms;
+  height: 100vh;
+  width: 100%;
 }
 
 .main .videoWrapper.posterLoaded {
