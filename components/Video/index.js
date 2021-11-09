@@ -16,8 +16,8 @@ export const Video = ({
 }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [loaded, setLoaded] = React.useState(false);
-  const [videoEl, setVideoEl] = React.useState(null);
-  const [vid, setVid] = React.useState(null);
+  const [videoEl, setPlayereoEl] = React.useState(null);
+  const [player, setPlayer] = React.useState(null);
   const [isPosterLoaded, setIsPosterLoaded] = React.useState(false);
 
   const { ref, inView, entry } = useInView({
@@ -35,78 +35,65 @@ export const Video = ({
     }
     let timeout;
 
-    if (inView) {
-      // timeout = setTimeout(() => {
-        // entry.target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
-        // Scroll.scroller.scrollTo(`video-${slug}`, {
-        //   duration: 200,
-        //   delay: 0,
-        //   smooth: 'easeInOutQuart'
-        // });
-      // }, 150);
-    }
-
     if (!inView) {
-      vid.pause();
+      player.pause();
     }
 
     return () => clearTimeout(timeout);
   }, [inView, isScrolling]);
 
   const onVideo = React.useCallback((el) => {
-    setVideoEl(el);
+    setPlayereoEl(el);
   }, []);
 
   React.useEffect(() => {
     if (videoEl == null) return;
-    const player = videojs(videoEl, {
+
+    const vjsplayer = videojs(videoEl, {
       autoplay: false,
       controls: true,
       poster: posterPlaceholder && posterPlaceholder.url,
-      fill: true,
-      sources: [
-        {
-          src,
-          type: 'video/mp4',
-        },
-      ],
-
+      fluid: false,
+      aspectRatio: '16:9',
+      sources: [{ src, type: 'video/mp4' }],
     });
-    setVid(player);
 
-    player.on('touchstart', function (e) {
-      if (e.target.nodeName === 'VIDEO' || e.target.nodeName === 'SPAN') {
-        if (player.paused()) {
-          player.play();
-        } else {
-          player.pause();
-        }
-        onPlay();
-      }
-    });
+    setPlayer(vjsplayer);
+
+    vjsplayer.on('touchend', playVideo);
 
     if (poster && posterPlaceholder) {
       const imgLarge = new Image();
       imgLarge.src = poster.url;
       imgLarge.onload = function () {
-        player.poster(imgLarge.src);
+        vjsplayer.poster(imgLarge.src);
         setTimeout(() => {
           setIsPosterLoaded(true);
         }, 1500)
       };
     }
 
-    return () => player.dispose();
+    return () => vjsplayer.dispose();
   }, [videoEl]);
 
   const onPlay = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const playVideo = () => {
+    if (player.paused()) {
+      player.play();
+    } else {
+      player.pause();
+    }
+  };
+
   return (
     <div className={`video videojs video-${slug} ${isPlaying ? 'isPlaying' : ''} ${isPosterLoaded ? 'posterLoaded' : ''}`} ref={ref}>
-      <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline />
-      <div className={`meta ${isPlaying ? '' : 'visible'}`}>
+      <div>
+        <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline preload="none" />
+      </div>
+      <div className={`meta ${isPlaying ? '' : 'visible'}`} onClick={playVideo}>
         <div className="left">
           <h2 className="brand">{brand}</h2>
           <h3 className="title">{title}</h3>

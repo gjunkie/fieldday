@@ -67,8 +67,8 @@
   filter: blur(0px);
 }
 
-.videojs > div > button > span:before {
-  height: 50px!important;
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+  height: 45px!important;
   position: initial!important;
 }
 
@@ -129,11 +129,11 @@
 .brand {
   font-size: 2em;
   letter-spacing: 5px;
-  margin: 0;
+  margin: 0 0 10px;
 }
 
 .title {
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0;
 }
 
