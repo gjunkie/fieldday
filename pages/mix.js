@@ -2,7 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import { getVideos } from '../lib/graphcms';
 import { Header } from '../components/Header';
-import { AboutPanel } from '../components/AboutPanel';
+import { Menu } from '../components/Menu';
 import { Video } from '../components/Video';
 
 import styles from '../styles/SoundDesign.module.css';
@@ -50,7 +50,7 @@ export default function SoundDesign({ videos }) {
             />
           );
         })}
-        <AboutPanel />
+        <Menu />
       </main>
     </>
   )

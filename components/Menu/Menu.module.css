@@ -1,4 +1,4 @@
-.aboutComponent {
+.menu {
   position: absolute;
 }
 
@@ -17,18 +17,78 @@
   cursor: pointer;
 }
 
-.aboutButton:hover {
+.aboutButton:hover img {
   transform: rotate(360deg);
 }
 
-.aboutButton:active {
+.aboutButton:not(.menuOpen):active {
   transform: scale(.9);
+}
+
+.aboutButton img {
+  position: relative;
+  z-index: 1;
 }
 
 .closeButton {
   top: 20px;
   position: absolute;
   right: 20px;
+}
+
+.aboutButton ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aboutButton li {
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  display: flex;
+  height: 37px;
+  justify-content: center;
+  left: 5px;
+  position: absolute;
+  top: 5px;
+  transition-duration: 200ms;
+  width: 37px;
+}
+
+.aboutButton li:hover {
+  transform: scale(1.1);
+}
+
+.aboutButton li.first {
+  background: rgb(250 103 30);
+}
+
+.aboutButton.menuOpen li.first {
+  top: -65px;
+}
+
+.aboutButton li.second {
+  background: rgb(250 30 241);
+}
+
+.aboutButton.menuOpen li.second {
+  top: -45px;
+  left: -45px;
+}
+
+.aboutButton li.third {
+  background: rgb(30 156 250);
+}
+
+.aboutButton.menuOpen li.third {
+  left: -65px;
+}
+
+.aboutButton li svg {
+  color: #ffffff;
+  height: 30px;
+  width: 30px;
 }
 
 .aboutPanel {
