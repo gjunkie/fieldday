@@ -1,3 +1,8 @@
+/* @-webkit-keyframes rotation { */
+/*     0%, 25% {transform: rotate(360deg);} */
+/*     25%, 100% {transform: rotate(360deg);} */
+/* } */
+
 .menu {
   position: absolute;
 }
@@ -17,17 +22,36 @@
   cursor: pointer;
 }
 
-.aboutButton:hover img {
-  transform: rotate(360deg);
-}
-
 .aboutButton:not(.menuOpen):active {
   transform: scale(.9);
 }
 
-.aboutButton img {
+.aboutButton .imageWrapper {
+  /* -webkit-animation: rotation 200ms infinite linear; */
+  /* animation: rotation 200ms infinite linear; */
   position: relative;
   z-index: 1;
+}
+
+.aboutButton .imageWrapper {
+}
+
+.aboutButton .circle {
+  background: rgb(250 165 30);
+  border-radius: 100px;
+  bottom: 0;
+  height: 47px;
+  position: absolute;
+  right: 0;
+  transition-duration: 200ms;
+  width: 47px;
+}
+
+.aboutButton.menuOpen .circle {
+  bottom: -80px;
+  height: 200px;
+  right: -80px;
+  width: 200px;
 }
 
 .closeButton {
@@ -61,28 +85,30 @@
 }
 
 .aboutButton li.first {
-  background: rgb(250 103 30);
+  background: rgb(250 165 30);
 }
 
 .aboutButton.menuOpen li.first {
-  top: -65px;
+  left: 80px;
+  top: 10px;
 }
 
 .aboutButton li.second {
-  background: rgb(250 30 241);
+  background: rgb(250 165 30);
 }
 
 .aboutButton.menuOpen li.second {
-  top: -45px;
-  left: -45px;
+  top: 31px;
+  left: 31px;
 }
 
 .aboutButton li.third {
-  background: rgb(30 156 250);
+  background: rgb(250 165 30);
 }
 
 .aboutButton.menuOpen li.third {
-  left: -65px;
+  left: 15px;
+  top: 85px;
 }
 
 .aboutButton li svg {
