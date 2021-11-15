@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import { Menu } from '../components/Menu';
 import { Video } from '../components/Video';
 
-import styles from '../styles/SoundDesign.module.css';
+import styles from '../styles/Work.module.css';
 
 export default function SoundDesign({ videos }) {
   const containerRef = React.useRef(null);
