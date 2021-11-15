@@ -57,7 +57,7 @@ export default function SoundDesign({ videos }) {
 }
 
 export async function getStaticProps() {
-  const videos = await getVideos({asSoundDesign: true, asMix: false})
+  const videos = await getVideos()
   return {
     props: {
       videos
