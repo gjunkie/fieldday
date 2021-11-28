@@ -98,7 +98,7 @@
 
 .video .meta {
   -webkit-font-smoothing: auto;
-  bottom: 70px;
+  bottom: 40px;
   color: #ffffff;
   display: flex;
   flex-grow: 1;
@@ -154,7 +154,7 @@
   }
 
   .video .meta {
-    bottom: 5px;
+    bottom: 15px;
   }
 
   .video:not(.isPlaying) .meta {
@@ -171,7 +171,6 @@
 
   .brand {
     font-size: 1.2rem;
-    margin-bottom: 30px;
   }
 
   .title {
