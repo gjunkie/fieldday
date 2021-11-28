@@ -37,8 +37,10 @@
 }
 
 .video-js .vjs-big-play-button {
-  border-radius: 40px!important;
-  display: flex!important;
+  background-color: rgba(66, 66, 66, 0.25);
+  border: none;
+  border-radius: 40px;
+  display: flex;
   height: 60px!important;
   left: 50%!important;
   margin-left: -20px;
@@ -47,6 +49,10 @@
   top: 50%!important;
   transition-duration: 200ms!important;
   width: 60px!important;
+}
+
+.video-js:hover .vjs-big-play-button {
+  background-color: rgba(66, 66, 66, 0.5);
 }
 
 .video-js .vjs-big-play-button .vjs-icon-placeholder {
@@ -149,7 +155,10 @@
 
   .video .meta {
     bottom: 5px;
-    display: none;
+  }
+
+  .video:not(.isPlaying) .meta {
+    opacity: 1;
   }
 
   .left {
@@ -162,10 +171,11 @@
 
   .brand {
     font-size: 1.2rem;
+    margin-bottom: 30px;
   }
 
   .title {
-    font-size: 1rem;
+    display: none;
   }
 
   .data {
