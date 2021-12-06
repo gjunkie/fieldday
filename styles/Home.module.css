@@ -1,14 +1,29 @@
 .main {
+  align-items: center;
   display: flex;
   height: 100vh;
+  justify-content: center;
+}
+
+.main .wrapper {
   align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .main .videoWrapper {
+  align-items: center;
+  display: flex;
   filter: blur(5px);
+  height: 62%;
+  justify-content: center;
   transition-duration: 500ms;
-  height: 100vh;
-  width: 100%;
+  overflow: hidden;
+  width: 1480px;
 }
 
 .main .videoWrapper.posterLoaded {
@@ -18,16 +33,19 @@
 .main .videoWrapper video {
   object-fit: cover;
   width: 100%;
-  height: 100vh;
 }
 
 .main h1 {
   flex-grow: 1;
-  padding-right: 50px;
-  position: fixed;
+  margin: 0;
+  position: absolute;
   text-align: center;
   width: 100%;
   z-index: 1;
+}
+
+.main h1 img {
+  width: 100%;
 }
 
 .videoOverlay {
@@ -35,15 +53,22 @@
   background-size: 3px 3px;
   bottom: 0;
   left: 0;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   z-index: 1;
 }
 
+@media (max-width: 1480px) {
+  .main .wrapper,
+  .main h1,
+  .main h1 img {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1100px) {
   .main h1 img {
-    width: 600px;
   }
 }
 
@@ -53,6 +78,5 @@
   }
 
   .main h1 img {
-    width: 80%;
   }
 }

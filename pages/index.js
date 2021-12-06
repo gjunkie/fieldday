@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { Header } from '../components/Header';
 import { Menu } from '../components/Menu';
 
@@ -9,6 +10,9 @@ export default function Home() {
 
   const [isPosterLoaded, setIsPosterLoaded] = React.useState(false);
   const [posterUrl, setPosterUrl] = React.useState('/images/home-poster.jpg');
+
+  const router = useRouter();
+  const isHomePage = router.pathname === '/';
 
   React.useEffect(() => {
     const imgLarge = new Image();
@@ -42,15 +46,17 @@ export default function Home() {
         <meta property="og:description" content="" key="ogdesc" />
       </Head>
 
-      <Header />
+      {!isHomePage ? (<Header />) : null}
 
       <main className={styles.main}>
-        <h1 className="site-logo"><img className="" alt="Field Day Sound" src="images/field-day-sound-logo.png" /></h1>
-        <div className={`${styles.videoWrapper} ${isPosterLoaded ? styles.posterLoaded : ''}`}>
-          <video playsInline autoPlay muted loop poster={posterUrl} id="bgvid">
-            <source src="https://player.vimeo.com/external/624066986.hd.mp4?s=1cf6780146a1457147a74e2ac666dd0275043fe6&profile_id=174" type="video/mp4" />
-          </video>
-        </div>
+        <div className={styles.wrapper}>
+          <div className={`${styles.videoWrapper} ${isPosterLoaded ? styles.posterLoaded : ''}`}>
+            <h1 className="site-logo"><img className="" alt="Field Day Sound" src="images/logo.png" /></h1>
+            <video playsInline autoPlay muted loop poster={posterUrl} id="bgvid">
+              <source src="https://player.vimeo.com/external/624066986.hd.mp4?s=1cf6780146a1457147a74e2ac666dd0275043fe6&profile_id=174" type="video/mp4" />
+            </video>
+          </div>
+          </div>
         <Menu />
       </main>
     </>
