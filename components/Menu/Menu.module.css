@@ -1,7 +1,7 @@
-/* @-webkit-keyframes rotation { */
-/*     0%, 25% {transform: rotate(360deg);} */
-/*     25%, 100% {transform: rotate(360deg);} */
-/* } */
+@-webkit-keyframes rotation {
+    /* 0%, 25% {transform: rotate(180deg);} */
+    0%, 100% {transform: rotate(180deg);}
+}
 
 .menu {
   position: absolute;
@@ -25,31 +25,36 @@
   cursor: pointer;
 }
 
-.aboutButton:not(.menuOpen):active {
+.aboutButton:active {
   transform: scale(.9);
 }
 
 .aboutButton .imageWrapper {
-  background: rgb(250 165 30);
+  /* border: 1px dashed rgb(250 165 30); */
+  background-color: #ffffff;
   border-radius: 100px;
   display: flex;
-  /* -webkit-animation: rotation 200ms infinite linear; */
-  /* animation: rotation 200ms infinite linear; */
   position: relative;
+  transition-duration: 200ms;
   z-index: 1;
 }
 
-.aboutButton .imageWrapper {
+.aboutButton .imageWrapper:hover {
+  /* -webkit-animation: rotation 200ms infinite linear; */
+  /* animation: rotation 200ms infinite linear; */
+}
+
+.aboutButton.menuOpen .imageWrapper {
+  border-radius: 100px;
+  /* transform: scale(.8); */
 }
 
 .aboutButton .circle {
-  background: rgb(250 165 30);
   border-radius: 100px;
   bottom: 0;
   height: 47px;
   position: absolute;
   right: 0;
-  transition-duration: 200ms;
   width: 47px;
 }
 
@@ -74,16 +79,24 @@
 
 .aboutButton li {
   align-items: center;
-  background: white;
+  background: rgb(250 165 30);
   border-radius: 50px;
   display: flex;
-  height: 37px;
+  height: 38px;
   justify-content: center;
-  left: 5px;
   position: absolute;
-  top: 5px;
-  transition-duration: 200ms;
-  width: 37px;
+  transition-duration: 150ms;
+  /* transform: translateY(0px) translateX(0px); */
+  transform: translateY(-19px) translateX(-39px);
+  width: 38px;
+}
+
+.aboutButton li a {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
 
 .aboutButton li:hover {
@@ -91,36 +104,32 @@
 }
 
 .aboutButton li.first {
-  background: rgb(250 165 30);
 }
 
 .aboutButton.menuOpen li.first {
-  left: 15px;
-  top: 70px;
+  transform: translateY(-20px) translateX(-105px);
 }
 
 .aboutButton li.second {
-  background: rgb(250 165 30);
+  transition-delay: 50ms;
 }
 
 .aboutButton.menuOpen li.second {
-  top: 121px;
-  left: 30px;
+  transform: translateY(27px) translateX(-90px);
 }
 
 .aboutButton li.third {
-  background: rgb(250 165 30);
+  transition-delay: 100ms;
 }
 
 .aboutButton.menuOpen li.third {
-  left: 85px;
-  top: 153px;
+  transform: translateY(55px) translateX(-50px);
 }
 
 .aboutButton li svg {
   color: #ffffff;
-  height: 30px;
-  width: 30px;
+  /* height: 20px; */
+  /* width: 20px; */
 }
 
 .aboutPanel {

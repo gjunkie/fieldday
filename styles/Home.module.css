@@ -19,7 +19,7 @@
   align-items: center;
   display: flex;
   filter: blur(5px);
-  height: 62%;
+  height: 100vh;
   justify-content: center;
   transition-duration: 500ms;
   overflow: hidden;
