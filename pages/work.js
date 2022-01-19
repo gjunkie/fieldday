@@ -45,6 +45,8 @@ export default function SoundDesign({ videos }) {
               poster={video.poster}
               posterPlaceholder={video.posterPlaceholder}
               slug={video.slug}
+              soundDesigner={video.soundDesigner}
+              soundMixer={video.soundMixer}
               src={video.videoLink}
               title={video.title}
             />

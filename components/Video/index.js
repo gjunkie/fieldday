@@ -11,6 +11,8 @@ export const Video = ({
   posterPlaceholder,
   poster,
   slug,
+  soundDesigner,
+  soundMixer,
   src,
   title
 }) => {
@@ -99,6 +101,8 @@ export const Video = ({
           <h3 className="title">{title}</h3>
           <div className="data">Agency - {agency}</div>
           <div className="data">Director - {director}</div>
+          <div className="data">Sound Designer - {soundDesigner}</div>
+          <div className="data">Sound Mixer - {soundMixer}</div>
         </div>
       </div>
     </div>
