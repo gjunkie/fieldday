@@ -1,6 +1,7 @@
-@-webkit-keyframes rotation {
+@-webkit-keyframes pulse {
     /* 0%, 25% {transform: rotate(180deg);} */
-    0%, 100% {transform: rotate(180deg);}
+    0%, 5% {transform: scale(1.1);}
+    5%, 100% { transform: scale(1); }
 }
 
 .menu {
@@ -32,14 +33,15 @@
 .aboutButton .imageWrapper {
   /* border: 1px dashed rgb(250 165 30); */
   align-items: center;
-  background-color: #ffffff;
   border-radius: 100px;
   display: flex;
   justify-content: center;
   position: relative;
   transition-duration: 200ms;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
+  -webkit-animation: pulse 3000ms infinite linear;
+  animation: pulse 3000ms infinite linear;
   z-index: 1;
 }
 
@@ -131,8 +133,7 @@
 }
 
 .aboutButton img {
-  height: 40px;
-  width: 40px;
+  height: 50px;
 }
 
 .aboutPanel {

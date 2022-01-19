@@ -12,7 +12,7 @@ export const Menu = () => {
         onClick={() => setAboutPanelIsOpen(!isAboutPanelOpen)}
       >
         <div className={styles.imageWrapper}>
-          <img src="/images/field-day-sound-logo-small.png" alt="Field Day Sound logo" />
+          <img src="/images/creamsicle.png" alt="Field Day Sound logo" />
         </div>
       </div>
 

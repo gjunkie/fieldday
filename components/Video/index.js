@@ -101,8 +101,12 @@ export const Video = ({
           <h3 className="title">{title}</h3>
           <div className="data">Agency - {agency}</div>
           <div className="data">Director - {director}</div>
-          <div className="data">Sound Designer - {soundDesigner}</div>
-          <div className="data">Sound Mixer - {soundMixer}</div>
+          {soundDesigner ? (
+            <div className="data">Sound Designer - {soundDesigner}</div>
+          ) : null}
+          {soundMixer ? (
+            <div className="data">Sound Mixer - {soundMixer}</div>
+          ) : null}
         </div>
       </div>
     </div>
