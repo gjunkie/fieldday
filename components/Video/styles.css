@@ -132,22 +132,6 @@
   padding-right: 50px;
 }
 
-.brand {
-  font-size: 2em;
-  letter-spacing: 5px;
-  margin: 0;
-}
-
-.title {
-  font-size: 1.5em;
-  margin: 0 0 10px;
-}
-
-.data {
-  font-size: 1em;
-  margin-bottom: 5px;
-}
-
 @media (max-width: 600px) {
   .siteTitle {
     display: none;
@@ -167,17 +151,5 @@
 
   .left {
     padding-left: 20px;
-  }
-
-  .brand {
-    font-size: 1.2rem;
-  }
-
-  .title {
-    display: none;
-  }
-
-  .data {
-    display: none;
   }
 }

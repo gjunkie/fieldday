@@ -2,7 +2,6 @@ import * as React from 'react';
 import videojs from 'video.js';
 import { useInView } from 'react-intersection-observer';
 import { Credits } from '../Credits';
-// import './Video.module.css';
 
 export const Video = ({
   agency,
