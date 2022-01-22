@@ -4,9 +4,16 @@ import styles from './Menu.module.css';
 
 export const Menu = () => {
   const [isAboutPanelOpen, setAboutPanelIsOpen] = React.useState(false);
+  const [componentLoaded, setComponentLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setComponentLoaded(true);
+    }, 500);
+  }, []);
 
   return (
-    <div className={styles.menu}>
+    <div className={`${styles.menu} ${componentLoaded ? styles.loaded : ''}`}>
       <div
         className={`${styles.aboutButton}`}
         onClick={() => setAboutPanelIsOpen(!isAboutPanelOpen)}

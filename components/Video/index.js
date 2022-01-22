@@ -1,6 +1,7 @@
 import * as React from 'react';
 import videojs from 'video.js';
 import { useInView } from 'react-intersection-observer';
+import { Credits } from '../Credits';
 // import './Video.module.css';
 
 export const Video = ({
@@ -8,8 +9,8 @@ export const Video = ({
   brand,
   director,
   isScrolling,
-  posterPlaceholder,
   poster,
+  posterPlaceholder,
   slug,
   soundDesigner,
   soundMixer,
@@ -97,16 +98,14 @@ export const Video = ({
       </div>
       <div className={`meta ${isPlaying ? '' : 'visible'}`} onClick={playVideo}>
         <div className="left">
-          <h2 className="brand">{brand}</h2>
-          <h3 className="title">{title}</h3>
-          <div className="data">Agency - {agency}</div>
-          <div className="data">Director - {director}</div>
-          {soundDesigner ? (
-            <div className="data">Sound Designer - {soundDesigner}</div>
-          ) : null}
-          {soundMixer ? (
-            <div className="data">Sound Mixer - {soundMixer}</div>
-          ) : null}
+          <Credits
+            agency={agency}
+            brand={brand}
+            director={director}
+            mix={soundMixer}
+            sound={soundDesigner}
+            title={title}
+          />
         </div>
       </div>
     </div>

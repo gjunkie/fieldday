@@ -1,8 +1,14 @@
 .header {
   height: 125px;
+  opacity: 0;
   position: fixed;
+  transition-duration: 500ms;
   width: 100%;
   z-index: 10;
+}
+
+.header.loaded {
+  opacity: 1;
 }
 
 .header h1 {
@@ -13,7 +19,7 @@
   margin: 0;
   position: absolute;
   right: 20px;
-  top: 25px;
+  top: 17px;
   z-index: 2;
 
   -webkit-font-smoothing: antialiased;
@@ -22,17 +28,6 @@
 .header h1 a {
   color: rgb(243, 155, 55);
 }
-
-/*
- * Made by Erik Terwan
- * 24th of November 2015
- * MIT License
- *
- *
- * If you are thinking of using this in
- * production code, beware of the browser
- * prefixes.
- */
 
 @media (min-width: 1500px) {
   .header h1 {

@@ -9,6 +9,13 @@ import styles from '../styles/Work.module.css';
 
 export default function SoundDesign({ videos }) {
   const containerRef = React.useRef(null);
+  const [pageLoaded, setPageLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setPageLoaded(true);
+    }, 1000);
+  }, []);
 
   return (
     <>
@@ -33,7 +40,7 @@ export default function SoundDesign({ videos }) {
 
       <Header />
 
-      <main className={styles.main} ref={containerRef}>
+      <main className={`${styles.main} ${pageLoaded ? styles.loaded : ''}`} ref={containerRef}>
         {videos.map((video, index) => {
           return (
             <Video
@@ -52,8 +59,8 @@ export default function SoundDesign({ videos }) {
             />
           );
         })}
-        <Menu />
       </main>
+      <Menu />
     </>
   )
 }
