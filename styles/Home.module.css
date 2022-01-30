@@ -27,7 +27,7 @@
   width: 1480px;
 }
 
-.main .videoWrapper:hover {
+.main .videoWrapper h1:hover {
   cursor: pointer;
 }
 
@@ -43,7 +43,7 @@
 
 .main .videoWrapper video {
   object-fit: cover;
-  width: 100%;
+  width: 90%;
 }
 
 .main h1 {
