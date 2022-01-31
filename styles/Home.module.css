@@ -28,7 +28,6 @@
 }
 
 .main .videoWrapper h1:hover {
-  cursor: pointer;
 }
 
 .main .videoWrapper.posterLoaded {
@@ -49,13 +48,19 @@
 .main h1 {
   flex-grow: 1;
   margin: 0;
+  padding: 400px 0;
   position: absolute;
   text-align: center;
   width: 100%;
   z-index: 1;
 }
 
+.main h1 img:hover {
+  cursor: pointer;
+}
+
 .main h1 img {
+  padding: 400px 0;
   width: 100%;
 }
 
