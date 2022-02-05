@@ -4,7 +4,6 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
-
   const [isPosterLoaded, setIsPosterLoaded] = React.useState(false);
   const [posterUrl, setPosterUrl] = React.useState('/images/home-poster.jpg');
   const [clickedLogo, setClickedLogo] = React.useState(false);
