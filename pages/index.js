@@ -38,7 +38,6 @@ export default function Home() {
         <meta name="twitter:description" content="" key="twtitle" />
         <meta name="twitter:creator" content="@..." key="twhandle" />
         <meta name="twitter:image" content="https://fielddaysound.com/images/....jpg" key="twimage" />
-
         {/* Open Graph */}
         <meta property="og:url" content="https://fielddaysound" key="ogurl" />
         <meta property="og:image" content="https://fielddaysound.com/images/....jpg" key="ogimage" />
