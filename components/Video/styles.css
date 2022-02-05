@@ -128,10 +128,6 @@
   padding-left: 50px;
 }
 
-.left h2 {
-  padding-right: 50px;
-}
-
 @media (max-width: 800px) {
   .left {
     padding-left: 30px;
