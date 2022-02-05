@@ -14,6 +14,10 @@
   opacity: 1;
 }
 
+.menu p {
+  max-width: 800px;
+}
+
 .aboutButton {
   align-items: center;
   display: flex;

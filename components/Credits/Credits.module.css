@@ -14,6 +14,21 @@
   margin-bottom: 5px;
 }
 
+@media (max-width: 800px) {
+  .brand {
+    font-size: 1.5em;
+  }
+
+  .title {
+    font-size: 1.3em;
+  }
+
+  .data {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+}
+
 @media (max-width: 600px) {
   .brand {
     font-size: 1.2rem;
