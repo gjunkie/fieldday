@@ -59,3 +59,27 @@ a:hover {
 .framerWrapper {
   position: relative;
 }
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModal__Content {
+  inset: 0!important;
+  padding: 0!important;
+}
+
+.ReactModal__Overlay {
+  inset: 0;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+  z-index: 11;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}

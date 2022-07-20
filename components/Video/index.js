@@ -1,20 +1,13 @@
 import * as React from 'react';
 import videojs from 'video.js';
 import { useInView } from 'react-intersection-observer';
-import { Credits } from '../Credits';
 
 export const Video = ({
-  agency,
-  brand,
-  director,
   isScrolling,
   poster,
   posterPlaceholder,
   slug,
-  soundDesigner,
-  soundMixer,
   src,
-  title
 }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [loaded, setLoaded] = React.useState(false);
@@ -92,21 +85,7 @@ export const Video = ({
 
   return (
     <div className={`video videojs video-${slug} ${isPlaying ? 'isPlaying' : ''} ${isPosterLoaded ? 'posterLoaded' : ''}`} ref={ref}>
-      <div>
-        <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline preload="none" />
-      </div>
-      <div className={`meta ${isPlaying ? '' : 'visible'}`} onClick={playVideo}>
-        <div className="left">
-          <Credits
-            agency={agency}
-            brand={brand}
-            director={director}
-            mix={soundMixer}
-            sound={soundDesigner}
-            title={title}
-          />
-        </div>
-      </div>
+      <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline preload="none" />
     </div>
   );
 };

@@ -1,0 +1,67 @@
+.poster {
+  position: relative;
+}
+
+.poster h3 {
+  color: #ffffff;
+  font-family: Quicksand;
+  font-size: 3.5rem;
+  font-weight: 100;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 100%;
+}
+
+.poster img {
+  width: 100%;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.modalTop {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.modalBottom {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  margin: 0 5%;
+}
+
+@media (max-width: 1480px) {
+}
+
+@media (max-width: 1170px) {
+  .poster h3 {
+    /* font-size: 1.3rem; */
+  }
+
+  .poster img {
+    height: 100vh;
+    left: 50%;
+    position: relative;
+    width: auto;
+    transform: translate(-50%, 0);
+  }
+}
