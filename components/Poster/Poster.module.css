@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.poster picture {
+  display: flex;
+}
+
 .poster h3 {
   color: #ffffff;
   font-family: Quicksand;
@@ -12,17 +16,57 @@
   text-align: center;
   top: 50%;
   transform: translate(0, -50%);
+  transition-duration: 200ms;
   width: 100%;
 }
 
+.poster h3:hover {
+  cursor: pointer;
+  /* transform: translate(0, -50%); */
+}
+
+/* .poster h3 span::before { */
+/*   content: ""; */
+/*   position: absolute; */
+/*   display: block; */
+/*   width: 100%; */
+/*   height: 2px; */
+/*   bottom: 0; */
+/*   left: 0; */
+/*   background-color: #000; */
+/*   transform: scaleX(0); */
+/*   transition: transform 0.3s ease; */
+/* } */
+/*  */
+/* .poster h3 span:hover::before { */
+/*   transform: scaleX(1); */
+/* } */
+
 .poster img {
+  opacity: .7;
   width: 100%;
+}
+
+.title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.credits {
+  font-size: 1.3rem;
+  margin: 5px 0;
 }
 
 .closeButton {
   background: none;
   border: none;
+  color: #FFFFFF;
+  font-family: 'Quicksand';
   font-size: 2rem;
+  position: relative;
+  right: 20px;
+  top: 20px;
+  user-select: none;
 }
 
 .closeButton:hover {
@@ -30,19 +74,25 @@
 }
 
 .modalContent {
+  background: #000000;
+  color: #FFFFFF;
   display: flex;
   flex-direction: column;
+  font-family: 'Quicksand';
   height: 100%;
 }
 
 .modalTop {
-  justify-content: flex-end;
+  align-items: center;
   display: flex;
+  display: flex;
+  height: 125px;
+  justify-content: flex-end;
+  padding-right: 70px;
 }
 
 .modalBottom {
   display: flex;
-  align-items: center;
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
@@ -54,14 +104,19 @@
 
 @media (max-width: 1170px) {
   .poster h3 {
-    /* font-size: 1.3rem; */
+    font-size: 2rem;
   }
 
   .poster img {
     height: 100vh;
     left: 50%;
+    object-fit: cover;
     position: relative;
-    width: auto;
     transform: translate(-50%, 0);
+    width: 100%;
+  }
+
+  .credits {
+    font-size: 1rem;
   }
 }

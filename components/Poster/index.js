@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ModalHeader } from '../ModalHeader';
 import Modal from 'react-modal';
 import { Video } from '../Video';
 
@@ -10,6 +11,7 @@ export const Poster = ({
   director,
   editor,
   poster,
+  posterMobile,
   posterPlaceholder,
   slug,
   soundDesigner,
@@ -18,23 +20,39 @@ export const Poster = ({
   title,
 }) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const hasSoundMixerAndDesign = !!soundMixer && !!soundDesigner;
 
   return (
     <div className={styles.poster}>
-      <img src={poster.url} onClick={() => setIsModalOpen(true)}/>
-      <h3 onClick={() => setIsModalOpen(true)}>{brand} | {title}</h3>
+      <picture>
+        <source 
+          media="(min-width: 1171px)"
+          srcSet={poster.url}
+        />
+        <source 
+          media="(max-width: 1170px)"
+          srcSet={posterMobile.url}
+        />
+        <img 
+          alt={title}
+          onClick={() => setIsModalOpen(true)}
+          src={posterMobile.url}
+        />
+      </picture>
+
+      <h3 onClick={() => setIsModalOpen(true)}><span>{brand} | {title}</span></h3>
+
       <Modal
         closeTimeoutMS={250}
         isOpen={isModalOpen}
       >
+
+        <ModalHeader onClickClose={() => setIsModalOpen(false)} />
+
         <div className={styles.modalContent}>
           <div className={styles.modalTop}>
-            <button
-              className={styles.closeButton}
-              onClick={() => setIsModalOpen(false)}
-              type="button"
-            >X</button>
           </div>
+
           <div className={styles.modalBottom}>
             <Video
               agency={agency}
@@ -49,8 +67,23 @@ export const Poster = ({
               src={src}
               title={title}
             />
-            <h3>{brand} | {title}</h3>
-            <h4>Agency - {agency} . Director - {director}</h4>
+
+            <h3 className={styles.title}>{brand} | {title}</h3>
+
+            <h4 className={styles.credits}>Agency: {agency}</h4>
+            <h4 className={styles.credits}>Director: {director}</h4>
+            
+            {soundMixer ? (
+              <h4 className={styles.credits}>
+                {`Sound Mixer: ${soundMixer}`}
+              </h4>
+            ) : null}
+
+            {soundDesigner ? (
+              <h4 className={styles.credits}>
+                {`Sound Designer: ${soundDesigner}`}
+              </h4>
+            ) : null}
           </div>
         </div>
       </Modal>

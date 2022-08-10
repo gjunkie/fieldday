@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { About } from '../About';
+import { CloseButton } from '../CloseButton';
 
-import styles from './Header.module.css';
+import styles from './ModalHeader.module.css';
 
-export const Header = () => {
+export const ModalHeader = ({onClickClose}) => {
 
   return (
     <header className={styles.header}>
@@ -16,7 +16,11 @@ export const Header = () => {
       </div>
 
       <div className={styles.right}>
-        <About />
+        <CloseButton
+          height={34}
+          onClick={onClickClose}
+          width={34}
+        />
       </div>
 
     </header>

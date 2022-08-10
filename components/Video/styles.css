@@ -19,7 +19,6 @@
 
 .videojs > div > video {
   object-fit: cover;
-  position: relative!important;
 }
 
 .video-js.vjs-playing .vjs-big-play-button {

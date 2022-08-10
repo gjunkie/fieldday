@@ -2,7 +2,6 @@ import * as React from 'react';
 import Head from 'next/head';
 import { getVideos } from '../lib/graphcms';
 import { Header } from '../components/Header';
-import { Menu } from '../components/Menu';
 import { Poster } from '../components/Poster';
 
 import styles from '../styles/Home.module.css';
@@ -38,7 +37,7 @@ export default function SoundDesign({ videos }) {
         <meta property="og:description" content="" key="ogdesc" />
       </Head>
 
-      <Header />
+      <Header showAboutIcon={true} />
 
       <main className={`${styles.main} ${pageLoaded ? styles.loaded : ''}`} ref={containerRef}>
         {videos.map((video, index) => {
@@ -50,6 +49,7 @@ export default function SoundDesign({ videos }) {
               editor={video.editor}
               key={index}
               poster={video.poster}
+              posterMobile={video.posterMobile || {}}
               posterPlaceholder={video.posterPlaceholder}
               slug={video.slug}
               soundDesigner={video.soundDesigner}
@@ -60,7 +60,6 @@ export default function SoundDesign({ videos }) {
           );
         })}
       </main>
-      <Menu />
     </>
   )
 }
