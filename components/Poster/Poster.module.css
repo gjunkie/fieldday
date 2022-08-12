@@ -9,7 +9,7 @@
 .poster h3 {
   color: #ffffff;
   font-family: Quicksand;
-  font-size: 3.5rem;
+  font-size: 2.3rem;
   font-weight: 100;
   margin: 0;
   position: absolute;
@@ -18,14 +18,23 @@
   transform: translate(0, -50%);
   transition-duration: 200ms;
   width: 100%;
+  z-index: 1;
 }
 
 .poster h3:hover {
   cursor: pointer;
-  /* transform: translate(0, -50%); */
+  letter-spacing: 1px;
 }
 
-/* .poster h3 span::before { */
+.poster h3:hover + picture img {
+  opacity: 1;
+}
+
+.poster h3 span {
+  position: relative;
+}
+
+/* .poster h3 span:before { */
 /*   content: ""; */
 /*   position: absolute; */
 /*   display: block; */
@@ -33,17 +42,18 @@
 /*   height: 2px; */
 /*   bottom: 0; */
 /*   left: 0; */
-/*   background-color: #000; */
+/*   background-color: #ffffff; */
 /*   transform: scaleX(0); */
 /*   transition: transform 0.3s ease; */
 /* } */
 /*  */
-/* .poster h3 span:hover::before { */
+/* .poster h3 span:hover:before { */
 /*   transform: scaleX(1); */
 /* } */
 
 .poster img {
-  opacity: .7;
+  opacity: .6;
+  transition-duration: 200ms;
   width: 100%;
 }
 
@@ -53,8 +63,8 @@
 }
 
 .credits {
-  font-size: 1.3rem;
-  margin: 5px 0;
+  font-size: 1.2rem;
+  margin: 1px 0;
 }
 
 .closeButton {
@@ -74,6 +84,7 @@
 }
 
 .modalContent {
+  align-items: center;
   background: #000000;
   color: #FFFFFF;
   display: flex;
@@ -96,13 +107,13 @@
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
-  margin: 0 5%;
+  width: 1150px;
 }
 
 @media (max-width: 1480px) {
 }
 
-@media (max-width: 1170px) {
+@media (max-width: 1200px) {
   .poster h3 {
     font-size: 2rem;
   }
@@ -114,6 +125,18 @@
     position: relative;
     transform: translate(-50%, 0);
     width: 100%;
+  }
+
+  .credits {
+    font-size: 1rem;
+  }
+
+  .modalBottom {
+    width: 95%;
+  }
+
+  .title {
+    font-size: 1.1rem;
   }
 
   .credits {

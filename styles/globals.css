@@ -65,6 +65,8 @@ a:hover {
 }
 
 .ReactModal__Content {
+  border: none!important;
+  border-radius: 0!important;
   inset: 0!important;
   padding: 0!important;
 }

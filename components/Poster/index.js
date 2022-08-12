@@ -20,10 +20,11 @@ export const Poster = ({
   title,
 }) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const hasSoundMixerAndDesign = !!soundMixer && !!soundDesigner;
 
   return (
     <div className={styles.poster}>
+      <h3 onClick={() => setIsModalOpen(true)}><span>{brand} | {title}</span></h3>
+
       <picture>
         <source 
           media="(min-width: 1171px)"
@@ -40,8 +41,6 @@ export const Poster = ({
         />
       </picture>
 
-      <h3 onClick={() => setIsModalOpen(true)}><span>{brand} | {title}</span></h3>
-
       <Modal
         closeTimeoutMS={250}
         isOpen={isModalOpen}
@@ -50,9 +49,6 @@ export const Poster = ({
         <ModalHeader onClickClose={() => setIsModalOpen(false)} />
 
         <div className={styles.modalContent}>
-          <div className={styles.modalTop}>
-          </div>
-
           <div className={styles.modalBottom}>
             <Video
               agency={agency}
