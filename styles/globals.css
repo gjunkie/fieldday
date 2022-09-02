@@ -87,3 +87,10 @@ a:hover {
 .ReactModal__Overlay--before-close{
   opacity: 0;
 }
+
+@media (max-width: 1200px) {
+
+  .ReactModal__Body--open {
+    position: fixed;
+  }
+}
