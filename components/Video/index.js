@@ -45,9 +45,8 @@ export const Video = ({
     if (videoEl == null) return;
 
     const vjsplayer = videojs(videoEl, {
-      autoplay: false,
+      autoplay: true,
       controls: true,
-      poster: posterPlaceholder && posterPlaceholder.url,
       fluid: false,
       aspectRatio: '16:9',
       sources: [{ src, type: 'video/mp4' }],
@@ -56,17 +55,6 @@ export const Video = ({
     setPlayer(vjsplayer);
 
     vjsplayer.on('touchend', playVideo);
-
-    if (poster && posterPlaceholder) {
-      const imgLarge = new Image();
-      imgLarge.src = poster.url;
-      imgLarge.onload = function () {
-        vjsplayer.poster(imgLarge.src);
-        setTimeout(() => {
-          setIsPosterLoaded(true);
-        }, 1500)
-      };
-    }
 
     return () => vjsplayer.dispose();
   }, [videoEl]);

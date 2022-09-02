@@ -11,7 +11,6 @@ export const Poster = ({
   director,
   editor,
   poster,
-  posterMobile,
   posterPlaceholder,
   slug,
   soundDesigner,
@@ -26,18 +25,10 @@ export const Poster = ({
       <h3 onClick={() => setIsModalOpen(true)}><span>{brand} | {title}</span></h3>
 
       <picture>
-        <source 
-          media="(min-width: 1171px)"
-          srcSet={poster.url}
-        />
-        <source 
-          media="(max-width: 1170px)"
-          srcSet={posterMobile.url}
-        />
         <img 
           alt={title}
           onClick={() => setIsModalOpen(true)}
-          src={posterMobile.url}
+          src={poster.url}
         />
       </picture>
 
@@ -66,20 +57,22 @@ export const Poster = ({
 
             <h3 className={styles.title}>{brand} | {title}</h3>
 
-            <h4 className={styles.credits}>Agency: {agency}</h4>
-            <h4 className={styles.credits}>Director: {director}</h4>
-            
-            {soundMixer ? (
-              <h4 className={styles.credits}>
-                {`Sound Mixer: ${soundMixer}`}
-              </h4>
-            ) : null}
+            <ul className={styles.credits}>
+              <li>Agency - {agency}</li>
+              <li>Director - {director}</li>
+              {soundMixer ? (
+                <li>
+                  {`Sound Mixer - ${soundMixer}`}
+                </li>
+              ) : null}
 
-            {soundDesigner ? (
-              <h4 className={styles.credits}>
-                {`Sound Designer: ${soundDesigner}`}
-              </h4>
-            ) : null}
+              {soundDesigner ? (
+                <li>
+                  {`Sound Designer - ${soundDesigner}`}
+                </li>
+              ) : null}
+            </ul>
+            <h4 className={styles.credits}></h4>
           </div>
         </div>
       </Modal>

@@ -26,7 +26,7 @@
   letter-spacing: 1px;
 }
 
-.poster h3:hover + picture img {
+.poster:hover img {
   opacity: 1;
 }
 
@@ -63,8 +63,15 @@
 }
 
 .credits {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  list-style-type: none;
   margin: 1px 0;
+  text-align: center;
+}
+
+.credits li {
+  display: inline;
+  padding-right: 30px;
 }
 
 .closeButton {
@@ -85,8 +92,8 @@
 
 .modalContent {
   align-items: center;
-  background: #000000;
-  color: #FFFFFF;
+  background: #FFFFFF;
+  color: #000000;
   display: flex;
   flex-direction: column;
   font-family: 'Quicksand';
@@ -109,20 +116,13 @@
   width: 1150px;
 }
 
-@media (max-width: 1480px) {
-}
-
 @media (max-width: 1200px) {
   .poster h3 {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 
   .poster img {
-    height: 100vh;
-    left: 50%;
-    object-fit: cover;
-    position: relative;
-    transform: translate(-50%, 0);
+    opacity: 1;
     width: 100%;
   }
 
@@ -140,5 +140,11 @@
 
   .credits {
     font-size: 1rem;
+  }
+
+  .credits li {
+    display: block;
+    padding-right: 0;
+    margin-bottom: 5px;
   }
 }
