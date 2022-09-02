@@ -4,8 +4,6 @@ import { useInView } from 'react-intersection-observer';
 
 export const Video = ({
   isScrolling,
-  poster,
-  posterPlaceholder,
   slug,
   src,
 }) => {
@@ -13,7 +11,6 @@ export const Video = ({
   const [loaded, setLoaded] = React.useState(false);
   const [videoEl, setPlayereoEl] = React.useState(null);
   const [player, setPlayer] = React.useState(null);
-  const [isPosterLoaded, setIsPosterLoaded] = React.useState(false);
 
   const { ref, inView, entry } = useInView({
     threshold: 0,
@@ -72,7 +69,7 @@ export const Video = ({
   };
 
   return (
-    <div className={`video videojs video-${slug} ${isPlaying ? 'isPlaying' : ''} ${isPosterLoaded ? 'posterLoaded' : ''}`} ref={ref}>
+    <div className={`video videojs video-${slug} ${isPlaying ? 'isPlaying' : ''}`} ref={ref}>
       <video ref={onVideo} className="video-js" onPlay={onPlay} onPause={onPlay} playsInline preload="none" />
     </div>
   );
