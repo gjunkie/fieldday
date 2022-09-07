@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { About } from '../components/About';
 import Head from 'next/head';
 import { getVideos } from '../lib/graphcms';
-import { Header } from '../components/Header';
 import { Poster } from '../components/Poster';
 
 import styles from '../styles/Home.module.css';
@@ -15,6 +15,10 @@ export default function SoundDesign({ videos }) {
       setPageLoaded(true);
     }, 1000);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 
   return (
     <>
@@ -37,7 +41,13 @@ export default function SoundDesign({ videos }) {
         <meta property="og:description" content="" key="ogdesc" />
       </Head>
 
-      <Header showAboutIcon={true} />
+      <h1 className={styles.heading} onClick={scrollToTop}>
+        <a title="Field Day Sound">
+          <img src="/images/logo-small.png" alt="Field Day Sound logo" />
+        </a>
+      </h1>
+
+      <About />
 
       <main className={`${styles.main} ${pageLoaded ? styles.loaded : ''}`} ref={containerRef}>
         {videos.map((video, index) => {

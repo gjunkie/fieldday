@@ -1,3 +1,20 @@
+.heading {
+  left: 18px;
+  margin: 0;
+  position: fixed;
+  top: 18px;
+  transition-duration: 200ms;
+  z-index: 12;
+}
+
+.heading:active {
+  transform: scale(.95);
+}
+
+.heading:hover {
+  cursor: pointer;
+}
+
 .main {
   background: #000000;
   display: flex;
@@ -53,4 +70,10 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media (max-width: 1200px) {
+  .heading {
+    display: none;
+  }
 }

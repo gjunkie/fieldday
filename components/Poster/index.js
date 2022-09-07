@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ModalHeader } from '../ModalHeader';
+import { CloseButton } from '../CloseButton';
 import Modal from 'react-modal';
 import { Video } from '../Video';
 
@@ -22,7 +22,7 @@ export const Poster = ({
 
   return (
     <div className={styles.poster}>
-      <h3 onClick={() => setIsModalOpen(true)}><span>{brand} | {title}</span></h3>
+      <h3 onClick={() => setIsModalOpen(true)}><span className={styles.brand}>{brand}</span><span className={styles.title}> | {title}</span></h3>
 
       <picture>
         <img 
@@ -37,7 +37,11 @@ export const Poster = ({
         isOpen={isModalOpen}
       >
 
-        <ModalHeader onClickClose={() => setIsModalOpen(false)} />
+        <CloseButton
+          height={34}
+          onClick={() => setIsModalOpen(false)}
+          width={34}
+        />
 
         <div className={styles.modalContent}>
           <div className={styles.modalBottom}>
@@ -55,7 +59,7 @@ export const Poster = ({
               title={title}
             />
 
-            <h3 className={styles.title}>{brand} | {title}</h3>
+            <h3 className={styles.heading}>{brand} | {title}</h3>
 
             <ul className={styles.credits}>
               <li>Agency - {agency}</li>
